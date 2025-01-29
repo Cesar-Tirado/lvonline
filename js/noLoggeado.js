@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Redirigir al login
             const basePath = window.location.pathname.split("/").slice(0, -1).join("/");
-            window.location.href = `${basePath}/../../index.html`;
+            window.location.href = `${basePath}../index.html`;
         });
 
         // Redirigir al enlace de compra
