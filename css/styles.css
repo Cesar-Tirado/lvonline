@@ -739,7 +739,7 @@ button.hidden {
     background: #14aff8;
 }
 body {
-    background-image: url('/assets/images/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-image: url('../assets/images/fondo.jpg');
     background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */

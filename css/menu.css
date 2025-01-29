@@ -323,7 +323,7 @@ header p {
 }
 /* Fondo general de la página */
 body {
-    background-image: url('/assets/images/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-image: url('../assets/images/fondo.jpg'); /* Ajusta la ruta si es necesario */
     background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
