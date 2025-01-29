@@ -22,15 +22,16 @@ document.addEventListener("DOMContentLoaded", () => {
         modalOverlay.classList.add("show");
         modal.classList.add("show");
 
-        // Botón de redirección
+      // Botón de redirección
         document.getElementById("redirect-login").addEventListener("click", () => {
             modalOverlay.classList.remove("show");
             modal.classList.remove("show");
 
-            // Redirigir al login
+            // Redirigir al login utilizando rutas relativas
             const basePath = window.location.pathname.split("/").slice(0, -1).join("/");
-            window.location.href = `${basePath}../index.html`;
+            window.location.href = `${basePath}/index.html`;
         });
+
 
         // Redirigir al enlace de compra
         document.getElementById("purchase-access").addEventListener("click", () => {
