@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Teórica del Módulo 6</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Teórica del Módulo 6</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Responde las siguientes preguntas sobre los temas teóricos del módulo. Debes obtener al menos 
+                    4 respuestas correctas para completar esta evaluación.
+                </p>
+                <form id="theory-evaluation-form">
+                    <h3>1. ¿Qué es la regresión ocular?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="correct">
+                        El retroceso involuntario durante la lectura.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        La habilidad de leer textos en reversa.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        La técnica de identificar palabras clave en un texto.
+                    </label><br>
+
+                    <h3>2. ¿Cuál es el propósito principal de la lectura por bloques?</h3>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Leer una palabra por vez.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="correct">
+                        Captar varias palabras a la vez para mejorar la velocidad.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Repetir palabras para memorizarlas.
+                    </label><br>
+
+                    <h3>3. ¿Qué es subvocalización?</h3>
+                    <label>
+                        <input type="radio" name="q3" value="correct">
+                        El hábito de pronunciar mentalmente las palabras mientras se leen.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        La habilidad de leer en silencio sin perder comprensión.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        La técnica de leer textos en voz alta.
+                    </label><br>
+
+                    <h3>4. ¿Qué herramienta es útil para reducir la subvocalización?</h3>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        Leer en voz alta continuamente.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="correct">
+                        Utilizar un puntero o dedo para guiar la lectura.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        Leer cada palabra con detenimiento.
+                    </label><br>
+
+                    <h3>5. ¿Cuál de las siguientes afirmaciones es verdadera sobre la lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q5" value="correct">
+                        La comprensión puede mantenerse o mejorar con la práctica adecuada.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        Solo unas pocas personas pueden aprender a leer rápidamente.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        La velocidad siempre compromete la comprensión.
+                    </label><br>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Evaluación completada con éxito!</p>
+                        <button id="close-modal">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo6_evaluacionTeorica.js"></script>
+</body>
+</html>

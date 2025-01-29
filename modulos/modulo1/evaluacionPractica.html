@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Práctica del Módulo 1</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Práctica del Módulo 1</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Completa los ejercicios prácticos a continuación. Debes obtener un puntaje mínimo del 70% para aprobar esta evaluación.
+                </p>
+
+                <!-- Ejercicio 1: Detección de Distracciones -->
+                <div id="exercise1">
+                    <h3>1. Detección de Distracciones</h3>
+                    <p>
+                        Identifica las palabras que no pertenecen al contexto del siguiente texto. Haz clic en ellas para seleccionarlas:
+                    </p>
+                    <p>
+                        La lectura <span class="word" data-distractor="false">rápida</span> es una habilidad <span class="word" data-distractor="false">clave</span> 
+                        que permite <span class="word" data-distractor="true">unicornios</span> procesar grandes <span class="word" data-distractor="false">cantidades</span> 
+                        de <span class="word" data-distractor="false">información</span> en menos tiempo. 
+                        Las <span class="word" data-distractor="false">técnicas</span> como la <span class="word" data-distractor="true">ardillas</span> lectura 
+                        por bloques y la eliminación de <span class="word" data-distractor="false">subvocalización</span> son <span class="word" data-distractor="false">fundamentales</span> 
+                        para mejorar la <span class="word" data-distractor="true">espuma</span> comprensión y <span class="word" data-distractor="false">retención</span> 
+                        de contenido. Sin embargo, para <span class="word" data-distractor="false">alcanzar</span> resultados óptimos, es <span class="word" data-distractor="true">canguros</span> 
+                        necesario practicar de forma <span class="word" data-distractor="false">constante</span>.
+                    </p>
+                    <p>
+                        En la era <span class="word" data-distractor="true">mariposa</span> de la información, la lectura veloz 
+                        no solo permite <span class="word" data-distractor="false">gestionar</span> mejor el tiempo, sino también 
+                        aumentar la <span class="word" data-distractor="false">productividad</span> y la capacidad de <span class="word" data-distractor="true">ardillas</span> 
+                        aprendizaje. Muchas personas que <span class="word" data-distractor="true">sándwich</span> aplican estas 
+                        <span class="word" data-distractor="false">estrategias</span> logran procesar textos complejos de forma más eficiente, 
+                        logrando <span class="word" data-distractor="true">camiones</span> leer más libros, artículos y documentos en un tiempo <span class="word" data-distractor="false">reducido</span>.
+                    </p>
+                </div>
+
+                <!-- Botón para enviar evaluación -->
+                <button id="submit-evaluation">Enviar Respuestas</button>
+
+
+                  <!-- Modal personalizado -->
+                  <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Evaluación completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Ir a Módulo 2</button>
+                    </div>
+                </div>
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2 class="hidden">Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+
+                   
+                </div>
+
+            </section>
+        </main>
+    </div>
+    <script src="../../js/evaluacionPractica.js"></script>
+    <script src="../../js/noLoggeado.js"></script>
+
+</body>
+</html>

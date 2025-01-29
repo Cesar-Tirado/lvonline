@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Teórica del Módulo 1</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Teórica del Módulo 1</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Responde las siguientes preguntas sobre los temas teóricos del módulo. Debes obtener al menos 
+                    4 respuestas correctas para completar esta evaluación.
+                </p>
+                <form id="theory-evaluation-form">
+                    <h3>1. ¿Qué es la lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="correct">
+                        Una técnica que combina velocidad, comprensión y retención.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        Leer rápidamente sin entender el contenido.
+                    </label><br>
+
+                    <h3>2. ¿Qué técnica mejora la velocidad de lectura?</h3>
+                    <label>
+                        <input type="radio" name="q2" value="correct">
+                        La lectura por bloques.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Leer palabra por palabra.
+                    </label><br>
+
+                    <h3>3. ¿Cuál es un factor que afecta la velocidad de lectura?</h3>
+                    <label>
+                        <input type="radio" name="q3" value="correct">
+                        La subvocalización.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        Leer siempre en voz alta.
+                    </label><br>
+
+                    <h3>4. ¿Qué rango de WPM es considerado óptimo?</h3>
+                    <label>
+                        <input type="radio" name="q4" value="correct">
+                        400-600 WPM.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        100-200 WPM.
+                    </label><br>
+
+                    <h3>5. ¿Cómo se calcula el WPM?</h3>
+                    <label>
+                        <input type="radio" name="q5" value="correct">
+                        (Palabras leídas / Tiempo en segundos) × 60.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        Palabras leídas × Tiempo en minutos.
+                    </label><br>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+
+                 <!-- Modal personalizado -->
+                 <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Evaluación completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Evaluación Práctica</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/evaluacionTeorica.js"></script>
+    <script src="../../js/noLoggeado.js"></script>
+</body>
+</html>

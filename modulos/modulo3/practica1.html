@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1: Identificación de Ideas Clave</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 1: Identificación de Ideas Clave</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto técnico y subraya las frases o palabras clave que consideres más relevantes. 
+                    Debes identificar al menos el 80% de las ideas clave para completar esta práctica con éxito.
+                </p>
+
+                <div id="practice-text">
+                    <p>
+                        <span class="word" data-key="true">La lectura veloz</span> es una habilidad que combina 
+                        <span class="word" data-key="true">velocidad</span> y <span class="word" data-key="true">comprensión</span>. 
+                        Para mejorar esta habilidad, es esencial dominar técnicas como la 
+                        <span class="word" data-key="true">lectura por bloques</span> y la 
+                        <span class="word" data-key="true">eliminación de subvocalización</span>. Estas técnicas 
+                        no solo aumentan la velocidad, sino que también mejoran la 
+                        <span class="word" data-key="true">retención</span> de información clave.
+                    </p>
+                    <p>
+                        Los beneficios de la lectura veloz son múltiples, incluyendo un 
+                        <span class="word" data-key="true">aumento en la productividad</span>, 
+                        <span class="word" data-key="true">mejora en la gestión del tiempo</span> y una mayor capacidad 
+                        para procesar <span class="word" data-key="true">información técnica</span> o compleja.
+                    </p>
+                </div>
+
+                <button id="submit-practice">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Práctica completada con éxito! Excelente trabajo.</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo3_practica1.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Ejercicio de Detección de Distracciones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+     <!-- Barra de navegación con iconos -->
+     <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Ejercicio de Detección de Distracciones</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto y selecciona las palabras que no pertenecen al contexto del contenido. 
+                    Haz clic en "Enviar Respuestas" cuando hayas terminado.
+                </p>
+
+                <div id="exercise">
+                    <h3>Texto:</h3>
+                    <p>
+                        La lectura <span class="word" data-distractor="false">rápida</span> es una habilidad 
+                        <span class="word" data-distractor="false">clave</span> que permite <span class="word" data-distractor="true">unicornios</span> 
+                        procesar grandes <span class="word" data-distractor="false">cantidades</span> de 
+                        <span class="word" data-distractor="false">información</span> en menos tiempo. 
+                        Las <span class="word" data-distractor="false">técnicas</span> como la <span class="word" data-distractor="true">ardillas</span> 
+                        lectura por bloques y la eliminación de <span class="word" data-distractor="false">subvocalización</span> son 
+                        <span class="word" data-distractor="false">fundamentales</span> para mejorar la <span class="word" data-distractor="true">espuma</span> 
+                        comprensión y <span class="word" data-distractor="false">retención</span> de contenido.
+                    </p>
+                </div>
+
+                <button id="submit-evaluation">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+
+    <script src="../../js/modulo2_practica3.js"></script>
+</body>
+</html>

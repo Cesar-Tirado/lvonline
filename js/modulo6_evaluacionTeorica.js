@@ -1,0 +1,47 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("theory-evaluation-form");
+    const resultMessage = document.getElementById("result-message");
+    const retryButton = document.getElementById("retry");
+    const markCompleteButton = document.getElementById("mark-complete");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const correctAnswers = document.querySelectorAll("input[value='correct']:checked").length;
+        const totalQuestions = document.querySelectorAll("input[type='radio'][value='correct']").length;
+
+        if (correctAnswers >= 4) { // Mínimo 80%
+            resultMessage.textContent = `¡Felicidades! Has aprobado con ${correctAnswers} de ${totalQuestions} correctas.`;
+            markCompleteButton.classList.remove("hidden");
+            retryButton.classList.add("hidden");
+        } else {
+            resultMessage.textContent = `Obtuviste ${correctAnswers} de ${totalQuestions} correctas. No alcanzaste el mínimo requerido.`;
+            retryButton.classList.remove("hidden");
+            markCompleteButton.classList.add("hidden");
+        }
+
+        document.getElementById("results").classList.remove("hidden");
+        form.classList.add("hidden");
+    });
+
+    retryButton.addEventListener("click", () => {
+        form.reset();
+        document.getElementById("results").classList.add("hidden");
+        form.classList.remove("hidden");
+    });
+
+    markCompleteButton.addEventListener("click", () => {
+        const progress = JSON.parse(localStorage.getItem("courseProgress")) || {};
+        const submodule = window.location.pathname.split("/").pop();
+        progress[submodule] = "completed";
+        localStorage.setItem("courseProgress", JSON.stringify(progress));
+
+        const modal = document.getElementById("custom-modal");
+        modal.classList.add("visible");
+
+        document.getElementById("close-modal").addEventListener("click", () => {
+            modal.classList.remove("visible");
+            window.location.href = "/modulos/modulo6/evaluacionPractica.html";
+        });
+    });
+});

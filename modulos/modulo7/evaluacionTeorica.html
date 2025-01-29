@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Teórica del Módulo 7</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Teórica del Módulo 7</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Responde las siguientes preguntas relacionadas con los temas del módulo. Debes obtener al menos 
+                    un 85% de respuestas correctas para aprobar.
+                </p>
+                <form id="theory-evaluation-form">
+                    <h3>1. ¿Qué es la retención activa?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="correct">
+                        Una técnica para recordar información utilizando asociaciones y repetición.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        Leer rápidamente sin retener información.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        Memorizar información sin comprenderla.
+                    </label><br>
+
+                    <h3>2. ¿Cómo mejora la comprensión lectora la segmentación visual?</h3>
+                    <label>
+                        <input type="radio" name="q2" value="correct">
+                        Divide el texto en bloques manejables para procesar información.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Obliga a leer palabra por palabra sin interrupciones.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Alienta la subvocalización constante.
+                    </label><br>
+
+                    <h3>3. ¿Qué papel juega el enfoque en la lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q3" value="correct">
+                        Reduce las distracciones y mejora la velocidad de procesamiento.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        Facilita la lectura sin entender el contenido.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        Aumenta la subvocalización para mejorar la retención.
+                    </label><br>
+
+                    <h3>4. ¿Cuál es el objetivo principal del entrenamiento en lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q4" value="correct">
+                        Procesar información de manera rápida y comprensiva.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        Leer todo tipo de textos a la misma velocidad.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        Incrementar la velocidad sacrificando comprensión.
+                    </label><br>
+
+                    <h3>5. ¿Qué herramienta se utiliza comúnmente para medir la velocidad lectora?</h3>
+                    <label>
+                        <input type="radio" name="q5" value="correct">
+                        Palabras por minuto (WPM).
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        Tiempo total de lectura dividido por páginas.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        Segmentación de bloques de texto.
+                    </label><br>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Evaluación Teórica Completada!</p>
+                        <button id="close-modal">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Reintentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo7_evaluacionTeorica.js"></script>
+</body>
+</html>

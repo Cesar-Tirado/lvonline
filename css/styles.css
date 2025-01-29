@@ -1,0 +1,915 @@
+/* Reset básico */
+body, h1, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #203040; /* Fondo general */
+    color: #ffffff; /* Color de letra general */
+}
+
+/* Contenedor principal */
+.module-container {
+    max-width: 800px;
+    margin-top:  50px;
+    margin-bottom:  25px;
+    margin-right:  5px;
+    margin-left:  5px;
+    padding: 20px;
+    background: #2c3e50; /* Fondo de los contenedores */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que no se desborde el contenido */
+}
+
+.module-container header {
+    background-color: #14aff8; /* Fondo de encabezados */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.module-container h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.module-container .content h2 {
+    margin-top: 20px;
+    color: #14aff8;
+}
+
+.module-container .content p, .module-container .content ul {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Lista de submódulos */
+ul.submodulos {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Ajusta este valor según el espacio disponible */
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+}
+
+ul.submodulos li {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ajusta el texto largo dentro del contenedor */
+}
+
+ul.submodulos li a {
+    background-color: #2c3e50; /* Fondo de las unidades */
+    color: #ffffff;
+    display: block; /* Hacer que ocupen todo el ancho */
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+ul.submodulos li a:hover {
+    background-color: #14aff8; /* Cambiar fondo al pasar el cursor */
+}
+
+/* Botones importantes */
+button {
+    background-color: #14aff8; /* Fondo de botones */
+    color: #ffffff; /* Color de texto */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0d8de0; /* Fondo al pasar el cursor */
+}
+
+button.secondary {
+    background-color: #f4f4f4; /* Fondo secundario */
+    color: #788490; /* Letra secundaria */
+    border: 1px solid #788490;
+}
+
+button.secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Textos en fondos claros */
+.light-background {
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #788490; /* Letra oscura */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 100%;
+    background-color: #f4f4f4; /* Fondo claro */
+    border: 1px solid #788490;
+    border-radius: 5px;
+    margin: 20px 0;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #14aff8; /* Fondo de progreso */
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Ejercicios */
+.exercise-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+    padding: 20px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.exercise-box .word {
+    font-size: 1.2em;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.exercise-box .word.selected {
+    background-color: #ffcccc;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.exercise-box .hidden {
+    visibility: hidden;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content blockquote {
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+}
+
+.modal.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal:not(.hidden) {
+    opacity: 1;
+    visibility: visible;
+}
+
+#close-modal {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#close-modal:hover {
+    background: #0056b3;
+}
+
+/* Ocultar elementos */
+.hidden {
+    display: none;
+}
+
+#results {
+    text-align: center;
+    margin-top: 20px;
+}
+/* Centrar el botón en su contenedor */
+button#mark-complete {
+    display: block; /* Hace que el botón sea un bloque */
+    margin: 20px auto; /* Centra horizontalmente */
+    padding: 10px 20px;
+    background-color: #14aff8; /* Color del botón */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button#mark-complete:hover {
+    background-color: #0d8de0; /* Cambio de color al pasar el cursor */
+}
+/* Centrar botones dentro de formularios */
+form button[type="submit"] {
+    display: block; /* Asegura que el botón sea un bloque */
+    margin: 20px auto; /* Centra horizontalmente y agrega espacio arriba y abajo */
+    padding: 10px 20px;
+    background-color: #14aff8; /* Color del botón */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0d8de0; /* Cambio de color al pasar el cursor */
+}
+/* Estilo para las palabras seleccionables */
+.word {
+    display: inline-block;
+    padding: 5px 10px; /* Espaciado interno */
+    margin: 5px; /* Espaciado externo entre palabras */
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    border: 1px solid #ddd; /* Borde alrededor */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Indica que se puede hacer clic */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza cambios */
+}
+
+.word:hover {
+    background-color: #14aff8; /* Fondo en hover */
+    color: white; /* Texto blanco en hover */
+}
+
+/* Estilo para palabras seleccionadas */
+.word.selected {
+    background-color: #ff6b6b; /* Fondo rojo claro */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    border: 1px solid #ff4b4b; /* Borde rojo */
+}
+/* Fondo del modal */
+#custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.3s;
+}
+
+#custom-modal .modal-content {
+    background: #ffffff;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 90%;
+}
+
+#custom-modal .modal-content p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+#custom-modal .modal-content button {
+    background: #14aff8;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#custom-modal .modal-content button:hover {
+    background: #0d8de0;
+}
+
+/* Mostrar modal */
+#custom-modal.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+button.hidden {
+    display: none !important;
+}
+/* General de los conceptos */
+.concept {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    border: 2px solid #ddd; /* Borde por defecto */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Estilo al pasar el cursor */
+.concept:hover {
+    background-color: #e0e0e0; /* Fondo más oscuro */
+    border-color: #14aff8; /* Borde azul */
+}
+
+/* Conceptos seleccionados */
+.concept.selected {
+    background-color: #14aff8; /* Fondo azul */
+    color: #fff; /* Texto blanco */
+    border-color: #0d8de0; /* Borde azul oscuro */
+    transform: scale(1.05); /* Hace que se agrande ligeramente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar */
+}
+
+/* Mensaje de instrucciones */
+#diagram {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los conceptos se ajusten al ancho */
+    justify-content: center; /* Centra los elementos */
+    margin: 20px 0;
+}
+/* Contenedor de arrastre y soltar */
+.drag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.draggable {
+    background-color: #14aff8;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: grab;
+    font-size: 1em;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.draggable:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    background-color: #0d8de0;
+}
+
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.drop-target {
+    background-color: #f4f4f4;
+    color: #333;
+    border: 2px dashed #14aff8;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    min-height: 60px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.drop-target.drag-over {
+    background-color: #d0e7ff;
+    border-color: #0d8de0;
+}
+
+.drop-target.filled {
+    background-color: #e8ffe5;
+    border-color: #4caf50;
+}
+/* Estilos para los bloques de texto */
+.block {
+    display: none; /* Ocultar todos los bloques inicialmente */
+    font-size: 1.2em;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #2c3e50;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Bloque visible */
+.block.visible {
+    display: block; /* Mostrar el bloque visible */
+}
+
+/* Botón de inicio/reinicio */
+#start-blocks {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #14aff8;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+#start-blocks.hidden {
+    display: none; /* Ocultar botón cuando no sea necesario */
+}
+/* Centrar el contenedor de palabras */
+#word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; /* Altura específica para centrar */
+    margin: 20px 0;
+    background-color: #f4f4f4; /* Fondo claro */
+    border: 2px solid #14aff8;
+    border-radius: 10px;
+    font-size: 2em; /* Tamaño de fuente grande */
+    color: #333; /* Color de texto */
+}
+
+/* Opciones de palabras */
+.word-option {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #f4f4f4; /* Fondo claro */
+    color: #333; /* Texto oscuro */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.word-option:hover {
+    background-color: #14aff8; /* Fondo en hover */
+    color: white; /* Texto blanco en hover */
+}
+
+.word-option.selected {
+    background-color: #0d8de0; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    font-weight: bold; /* Texto en negrita */
+    border: 1px solid #0b6cb3; /* Borde azul más oscuro */
+}
+
+/* Ocultar elementos */
+.hidden {
+    display: none;
+}
+/* Seguimiento ocular */
+.tracking-area {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #14aff8;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.moving-point {
+    width: 20px;
+    height: 20px;
+    background-color: #14aff8;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tracking-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+/* Seguimiento ocular */
+.tracking-area {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #14aff8;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.moving-point {
+    width: 20px;
+    height: 20px;
+    background-color: #14aff8;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.tracking-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px;
+}
+
+/* Palabras seleccionables */
+.word {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.word.selected {
+    background-color: #ff6b6b;
+    color: white;
+    font-weight: bold;
+}
+/* Fondo oscuro */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Contenido del modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #203040;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Mostrar el modal */
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Botón del modal */
+.modal button {
+    background: #14aff8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.modal button:hover {
+    background: #0d8de0;
+}
+/* Estilo para el enlace "Comprar Acceso al Curso" */
+.modal a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: underline;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal a:hover {
+    color: #0d8de0;
+}
+#slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%; /* Ocupa todo el ancho */
+}
+
+#slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: calc(100% * 3); /* Ajustado para 3 páginas */
+}
+
+.card {
+    flex: 0 0 33.33%; /* Ajusta el ancho para mostrar 3 por página */
+    margin: 0; /* Sin margen para ocupar todo el espacio */
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.card h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.card ul li {
+    margin: 5px 0;
+}
+
+.card ul li a {
+    color: #14aff8;
+    text-decoration: none;
+}
+
+.card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Puntos de paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination .dot {
+    width: 10px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pagination .dot.active {
+    background: #14aff8;
+}
+body {
+    background-image: url('/assets/images/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    color: #ffffff; /* Asegura que el texto sea legible sobre el fondo */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+.indicaciones h2 {
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilo para la barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #203040;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-home img, .nav-logout img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.nav-home:hover, .nav-logout:hover {
+    opacity: 0.8;
+}
+
+/* Estilo general para la barra de navegación */
+.navbar2 {
+    display: flex;
+    justify-content: space-between; /* Separación entre los íconos */
+    align-items: center;
+    padding: 10px 50px; /* Más espacio lateral para centrar los iconos */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: none; /* Contenedor invisible */
+}
+
+/* Estilo para los iconos */
+.nav-home img, .nav-logout img {
+    width: 36px;  
+    height: 36px;
+    cursor: pointer;
+    pointer-events: auto; /* Permitir clic solo en los iconos */
+}
+
+
+.nav-logout {
+    margin-right: 80px; /* Más margen a la derecha */
+}
+
+/* Eliminar bordes de los botones */
+.nav-logout, .nav-home {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+/* Efecto hover para los iconos */
+.nav-home img:hover, .nav-logout img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Media Query para hacerlo responsivo */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1px 1px; /* Reducción de padding lateral en pantallas pequeñas */
+    }
+
+    .nav-home img, .nav-logout img {
+        width: 32px;  
+        height: 32px;
+    }
+}
+/* Estilo para los botones de navegación entre páginas */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.prev-page-button, .next-page-button {
+    padding: 10px 20px;
+    background-color: #14aff8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.prev-page-button:hover, .next-page-button:hover {
+    background-color: #0d8de0;
+}
+
+/* Deshabilitar el botón visualmente */
+.prev-page-button.disabled {
+    pointer-events: none; /* Desactiva clics */
+    opacity: 0.5; /* Reduce la visibilidad */
+    cursor: not-allowed; /* Cambia el cursor */
+}
+.error-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ffffff; /* Letras principales en blanco */
+    margin-bottom: 20px;
+}
+
+.subtext {
+    font-size: 1rem;
+    color: #14aff8; /* Letras secundarias del mismo color que el botón */
+    margin-bottom: 30px;
+}
+
+.return-home {
+    text-decoration: none;
+    font-size: 1.25rem;
+    color: #ffffff;
+    background-color: #14aff8;
+    padding: 15px 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: inline-block; /* Asegura que el botón tenga un margen visual */
+}
+
+.return-home:hover {
+    background-color: #0d8dd4;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .subtext {
+        font-size: 0.9rem;
+    }
+
+    .return-home {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .subtext {
+        font-size: 0.8rem;
+    }
+
+    .return-home {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+

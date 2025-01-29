@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1: Integración de Fuentes Múltiples</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 1: Integración de Fuentes Múltiples</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Analiza las fuentes presentadas a continuación: un gráfico, una tabla y un texto. Responde las preguntas al final basándote en la información proporcionada.
+                </p>
+
+                <div class="resources">
+                    <h3>Gráfico</h3>
+                    <img src="../../images/sample-graph.png" alt="Gráfico de lectura" class="resource-graph">
+
+                    <h3>Tabla</h3>
+                    <table class="resource-table">
+                        <thead>
+                            <tr>
+                                <th>Año</th>
+                                <th>Promedio de Lectura (WPM)</th>
+                                <th>Tiempo Dedicado (Horas/semana)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2021</td>
+                                <td>250</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>300</td>
+                                <td>7</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>350</td>
+                                <td>10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Texto</h3>
+                    <p>
+                        "Durante los últimos años, se ha observado un aumento significativo en la velocidad promedio de lectura y el tiempo dedicado a esta actividad. 
+                        Este incremento está relacionado con el interés creciente en el desarrollo personal y la profesionalización. 
+                        En 2023, los lectores que dedicaron más de 10 horas semanales alcanzaron velocidades promedio de hasta 350 WPM, 
+                        lo que representa un aumento del 40% en comparación con 2021."
+                    </p>
+                </div>
+
+                <h3>Preguntas</h3>
+                <form id="practice-form">
+                    <p>1. Según el gráfico, ¿cuál fue la velocidad promedio más alta registrada?</p>
+                    <label>
+                        <input type="radio" name="q1" value="correct">
+                        350 WPM
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        300 WPM
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        250 WPM
+                    </label><br>
+
+                    <p>2. ¿Qué año mostró el mayor incremento en horas dedicadas a la lectura?</p>
+                    <label>
+                        <input type="radio" name="q2" value="correct">
+                        2023
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        2022
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        2021
+                    </label><br>
+
+                    <p>3. ¿Cuál es la relación entre el tiempo dedicado y la velocidad promedio según el texto?</p>
+                    <label>
+                        <input type="radio" name="q3" value="correct">
+                        A más tiempo dedicado, mayor velocidad de lectura.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        No existe relación entre ambas.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        A más tiempo dedicado, menor velocidad de lectura.
+                    </label><br>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+
+    <script src="../../js/modulo6_practica1.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2: Seguimiento Visual Avanzado</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 2: Seguimiento Visual Avanzado</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    En este ejercicio, debes seguir con tu vista un bloque que se moverá rápidamente por la pantalla. 
+                    Al final, selecciona en qué posición crees que el bloque se detuvo.
+                </p>
+                <button id="start-visual-test">Iniciar Práctica</button>
+
+                <div id="tracking-area" class="hidden">
+                    <div id="moving-block"></div>
+                </div>
+
+                <div id="options-container" class="hidden">
+                    <h3>¿En qué posición se detuvo el bloque?</h3>
+                    <div class="options"></div>
+                    <button id="submit-answer" class="hidden">Enviar Respuesta</button>
+                </div>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Reintentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo7_practica2.js"></script>
+</body>
+</html>

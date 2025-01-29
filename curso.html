@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal Curso de Lectura Veloz</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <header>
+        <h1>LECTURA VELOZ ONLINE</h1>
+        <p>Selecciona un módulo para comenzar con el curso.</p>
+
+    </header>
+    <!-- <button id="clear-storage"
+        style="margin: 20px; padding: 10px; background-color: red; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Borrar Progreso (Debug)
+    </button> -->
+
+    <script>
+        document.getElementById("clear-storage").addEventListener("click", () => {
+            if (confirm("¿Estás seguro de que quieres borrar todo el progreso?")) {
+                localStorage.clear();
+                alert("Progreso borrado. Recarga la página para ver los cambios.");
+                window.location.reload();
+            }
+        });
+    </script>
+
+
+    <section class="indicaciones">
+        <h2>¡Bienvenido al Curso de Lectura Veloz!</h2>
+        <p>
+            Para completar el curso, recuerda:
+            <ul class="checklist">
+                <li>Marcar tu progreso al finalizar cada módulo, para obtener el certificado.</li>
+                <li>Ir completando las prácticas y evaluaciones, las cuales son indispensables.</li>
+                <li>Recuerda que tu progreso se irá guardando automáticamente en tu navegador.</li>
+                <li>Recuerda que tienes una sección de recursos adicionales.</li>
+            </ul>
+        </p>
+    </section>
+
+    <header>
+        <h1>MENÚ PRINCIPAL</h1>
+        <p>Aquí encontrarás todos los módulos y recursos del curso.</p>
+    </header>
+    <div class="slider-container">
+        <div class="slider" id="slider">
+            <!-- Módulo 1 -->
+            <div class="card">
+                <img src="assets/images/modulo1.svg" alt="Módulo 1">
+                <h2>Módulo 1: Fundamentos de la Lectura Veloz</h2>
+                <ul>
+                    <li><a href="modulos/modulo1/teoria1.html">Teoría 1: ¿Qué es la Lectura Veloz?</a></li>
+                    <li><a href="modulos/modulo1/teoria2.html">Teoría 2: Importancia de la Lectura Veloz</a></li>
+                    <li><a href="modulos/modulo1/teoria3.html">Teoría 3: Beneficios de la Lectura Veloz</a></li>
+                    <li><a href="modulos/modulo1/teoria4.html">Teoría 4: Factores que Afectan tu Velocidad</a></li>
+                    <li><a href="modulos/modulo1/teoria5.html">Teoría 5: Conceptos Básicos (WPM y Comprensión)</a></li>
+                    <li><a href="modulos/modulo1/practica1.html">Práctica 1: Test Inicial para Medir Velocidad</a></li>
+                    <li><a href="modulos/modulo1/practica2.html">Práctica 2: Identificación de Ideas Principales</a>
+                    </li>
+                    <li><a href="modulos/modulo1/practica3.html">Práctica 3: Ejercicio de Detección de Distracciones</a>
+                    </li>
+                    <li><a href="modulos/modulo1/evaluacionTeorica.html">Evaluación Teórica 1</a></li>
+                    <li><a href="modulos/modulo1/evaluacionPractica.html">Evaluación Práctica 1</a></li>
+                </ul>
+                <button class="complete-btn" data-module="1">Marcar como completado</button>
+            </div>
+
+            <!-- Módulo 2 -->
+            <div class="card">
+                <img src="assets/images/modulo2.svg" alt="Módulo 2">
+                <h2>Módulo 2: Técnicas Esenciales para Aumentar la Velocidad</h2>
+                <ul>
+                    <li><a href="modulos/modulo2/teoria1.html">Teoría 1: Uso de Guías Visuales</a></li>
+                    <li><a href="modulos/modulo2/teoria2.html">Teoría 2: Eliminación de Subvocalización</a></li>
+                    <li><a href="modulos/modulo2/teoria3.html">Teoría 3: Lectura por Bloques</a></li>
+                    <li><a href="modulos/modulo2/teoria4.html">Teoría 4: Ritmo de Lectura</a></li>
+                    <li><a href="modulos/modulo2/teoria5.html">Teoría 5: Escaneo y Búsqueda Rápida</a></li>
+                    <li><a href="modulos/modulo2/practica1.html">Práctica 1: Guías Visuales</a></li>
+                    <li><a href="modulos/modulo2/practica2.html">Práctica 2: Eliminación de Subvocalización</a></li>
+                    <li><a href="modulos/modulo2/practica3.html">Práctica 3: Lectura por Bloques</a></li>
+                    <li><a href="modulos/modulo2/evaluacionTeorica.html">Evaluación Teórica 2</a></li>
+                    <li><a href="modulos/modulo2/evaluacionPractica.html">Evaluación Práctica 2</a></li>
+                </ul>
+                <button class="complete-btn" data-module="2">Marcar como completado</button>
+            </div>
+
+            <!-- Módulo 3 -->
+            <div class="card">
+                <img src="assets/images/modulo3.svg" alt="Módulo 3">
+                <h2>Módulo 3: Expansión del Campo Visual</h2>
+                <ul>
+                    <li><a href="modulos/modulo3/teoria1.html">Teoría 1: ¿Qué es el Campo Visual?</a></li>
+                    <li><a href="modulos/modulo3/teoria2.html">Teoría 2: Beneficios de Ampliar la Percepción
+                            Periférica</a></li>
+                    <li><a href="modulos/modulo3/teoria3.html">Teoría 3: Leer Más de una Palabra a la Vez</a></li>
+                    <li><a href="modulos/modulo3/teoria4.html">Teoría 4: Uso de Patrones Visuales</a></li>
+                    <li><a href="modulos/modulo3/teoria5.html">Teoría 5: Mitos sobre el Campo Visual</a></li>
+                    <li><a href="modulos/modulo3/practica1.html">Práctica 1: Palabras Periféricas</a></li>
+                    <li><a href="modulos/modulo3/practica2.html">Práctica 2: Reconocimiento Rápido de Texto</a></li>
+                    <li><a href="modulos/modulo3/practica3.html">Práctica 3: Patrones Visuales</a></li>
+                    <li><a href="modulos/modulo3/evaluacionTeorica.html">Evaluación Teórica 3</a></li>
+                    <li><a href="modulos/modulo3/evaluacionPractica.html">Evaluación Práctica 3</a></li>
+                </ul>
+                <button class="complete-btn" data-module="3">Marcar como completado</button>
+            </div>
+
+            <!-- Módulo 4 -->
+            <div class="card">
+                <img src="assets/images/modulo4.svg" alt="Módulo 4">
+                <h2>Módulo 4: Comprensión y Retención</h2>
+                <ul>
+                    <li><a href="modulos/modulo4/teoria1.html">Teoría 1: Comprender a Alta Velocidad</a></li>
+                    <li><a href="modulos/modulo4/teoria2.html">Teoría 2: Técnicas de Resúmenes Mentales</a></li>
+                    <li><a href="modulos/modulo4/teoria3.html">Teoría 3: Uso de Mapas Mentales</a></li>
+                    <li><a href="modulos/modulo4/teoria4.html">Teoría 4: Relación entre Velocidad y Retención</a></li>
+                    <li><a href="modulos/modulo4/teoria5.html">Teoría 5: Errores Comunes</a></li>
+                    <li><a href="modulos/modulo4/practica1.html">Práctica 1: Resúmenes y Parafraseo</a></li>
+                    <li><a href="modulos/modulo4/practica2.html">Práctica 2: Creación de Mapas Mentales</a></li>
+                    <li><a href="modulos/modulo4/practica3.html">Práctica 3: Identificación de Información Clave</a>
+                    </li>
+                    <li><a href="modulos/modulo4/evaluacionTeorica.html">Evaluación Teórica 4</a></li>
+                    <li><a href="modulos/modulo4/evaluacionPractica.html">Evaluación Práctica 4</a></li>
+                </ul>
+                <button class="complete-btn" data-module="4">Marcar como completado</button>
+            </div>
+
+
+            <!-- Módulo 5 -->
+            <div class="card">
+                <img src="assets/images/modulo5.svg" alt="Módulo 5">
+                <h2>Módulo 5: Optimización de la Velocidad de Lectura</h2>
+                <ul>
+                    <li><a href="modulos/modulo5/teoria1.html">Teoría 1: Cómo Medir Velocidad de Lectura</a></li>
+                    <li><a href="modulos/modulo5/teoria2.html">Teoría 2: Relación Velocidad y Comprensión</a></li>
+                    <li><a href="modulos/modulo5/teoria3.html">Teoría 3: Factores Externos que Ayudan</a></li>
+                    <li><a href="modulos/modulo5/teoria4.html">Teoría 4: Importancia de la Práctica</a></li>
+                    <li><a href="modulos/modulo5/teoria5.html">Teoría 5: Progresos Reales</a></li>
+                    <li><a href="modulos/modulo5/practica1.html">Práctica 1: Lectura Cronometrada</a></li>
+                    <li><a href="modulos/modulo5/practica2.html">Práctica 2: Bloques de Dificultad</a></li>
+                    <li><a href="modulos/modulo5/practica3.html">Práctica 3: Ritmo Automático</a></li>
+                    <li><a href="modulos/modulo5/evaluacionTeorica.html">Evaluación Teórica 5</a></li>
+                    <li><a href="modulos/modulo5/evaluacionPractica.html">Evaluación Práctica 5</a></li>
+                </ul>
+                <button class="complete-btn" data-module="5">Marcar como completado</button>
+            </div>
+
+            <!-- Módulo 6 -->
+            <div class="card">
+                <img src="assets/images/modulo6.svg" alt="Módulo 6">
+                <h2>Módulo 6: Desarrollando Habilidades Avanzadas</h2>
+                <ul>
+                    <li><a href="modulos/modulo6/teoria1.html">Teoría 1: Lectura de Textos Complejos</a></li>
+                    <li><a href="modulos/modulo6/teoria2.html">Teoría 2: Ajuste del Ritmo</a></li>
+                    <li><a href="modulos/modulo6/teoria3.html">Teoría 3: Técnicas de Predicción</a></li>
+                    <li><a href="modulos/modulo6/teoria4.html">Teoría 4: Revisión de Estrategias</a></li>
+                    <li><a href="modulos/modulo6/teoria5.html">Teoría 5: Aplicación en Casos Reales</a></li>
+                    <li><a href="modulos/modulo6/practica1.html">Práctica 1: Textos Técnicos</a></li>
+                    <li><a href="modulos/modulo6/practica2.html">Práctica 2: Predicción de Contenidos</a></li>
+                    <li><a href="modulos/modulo6/practica3.html">Práctica 3: Contraste de Ideas</a></li>
+                    <li><a href="modulos/modulo6/evaluacionTeorica.html">Evaluación Teórica 6</a></li>
+                    <li><a href="modulos/modulo6/evaluacionPractica.html">Evaluación Práctica 6</a></li>
+                </ul>
+                <button class="complete-btn" data-module="6">Marcar como completado</button>
+            </div>
+
+            <!-- Módulo 7 -->
+            <div class="card">
+                <img src="assets/images/modulo7.svg" alt="Módulo 7">
+                <h2>Módulo 7: Evaluación Final y Certificación</h2>
+                <ul>
+                    <li><a href="modulos/modulo7/teoria1.html">Teoría 1: Cómo Interpretar tus Resultados</a></li>
+                    <li><a href="modulos/modulo7/teoria2.html">Teoría 2: Siguientes Pasos</a></li>
+                    <li><a href="modulos/modulo7/teoria3.html">Teoría 3: Aplicación en la Vida Diaria</a></li>
+                    <li><a href="modulos/modulo7/teoria4.html">Teoría 4: Integración Velocidad y Comprensión</a></li>
+                    <li><a href="modulos/modulo7/teoria5.html">Teoría 5: Reflexión Final</a></li>
+                    <li><a href="modulos/modulo7/practica1.html">Práctica 1: Evaluación Global</a></li>
+                    <li><a href="modulos/modulo7/practica2.html">Práctica 2: Textos Extensos</a></li>
+                    <li><a href="modulos/modulo7/evaluacionTeorica.html">Evaluación Teórica Final</a></li>
+                    <li><a href="modulos/modulo7/evaluacionPractica.html">Evaluación Práctica Final</a></li>
+                </ul>
+                <button class="complete-btn" data-module="7">Marcar como completado</button>
+            </div>
+
+
+        </div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <!-- Línea de Tiempo -->
+    <div class="timeline-container">
+        <h2>PROGRESO</h2>
+        <p>Completa todas las unidades para desbloquear tu certificado.</p>
+
+        <div class="timeline">
+            <div class="step">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+            <div class="step">4</div>
+            <div class="step">5</div>
+            <div class="step">6</div>
+            <div class="step">7</div>
+            <div class="step goal">META</div>
+        </div>
+        <!-- Agrega este botón al final de tu HTML -->
+        <div class="certificate-section">
+            <button id="downloadCertificate" disabled>
+                Descargar Certificado
+            </button>
+        </div>
+    </div>
+
+
+    <section class="resources-section">
+        <h2>Recursos Adicionales</h2>
+        <p>Aquí encontrarás archivos y enlaces que complementan el curso de Lectura Veloz. Puedes descargarlos o
+            consultarlos directamente.</p>
+
+        <div class="resources">
+            <!-- Recurso 1: PlayList  -->
+            <div class="resource-item">
+                <img src="assets/images/vlogger.png" alt="YouTube Icon">
+                <h3>Aumenta la Dificultad</h3>
+                <br>
+                <a href="404.html" >Poner PlayList</a>
+                <!-- <a href="https://www.ejemplo.com/articulos-lectura-veloz" download>Poner PlayList</a> -->
+            </div>
+            <!-- Recurso 2: Archivo PDF -->
+            <div class="resource-item">
+                <img src="assets/images/pdf.png" alt="PDF Icon">
+                <h3>Guía de Técnicas de Lectura</h3>
+                <br>
+                <a href="404.html" >Descargar PDF</a>
+                <!-- <a href="assets/resources/tecnicas-lectura.pdf" download>Descargar PDF</a> -->
+            </div>
+
+            <!-- Recurso 2: Enlace externo -->
+            <div class="resource-item">
+                <img src="assets/images/enlace.png" alt="Link Icon">
+                <h3>Artículos Relacionados</h3>
+                <br>
+                <a href="404.html" >Visitar Sitio</a>
+                <!-- <a href="https://www.ejemplo.com/articulos-lectura-veloz" target="_blank">Visitar Sitio</a> -->
+            </div>
+
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2>Aprende a Usar la Plataforma</h2>
+        <p>En este video te mostramos cómo navegar por la plataforma, acceder a los módulos, y aprovechar al máximo los
+            recursos disponibles.</p>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Aprende a usar la plataforma" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <section class="resources-section">
+        <div class="reminder-container">
+            <h2>Política de Uso del Curso</h2>
+            <p>
+                Recuerda que al comprar el acceso al curso, este es válido únicamente para un usuario.
+                Compartir tu cuenta con otras personas puede resultar en el cierre permanente de tu cuenta.
+            </p>
+            <p>
+                Esta política nos ayuda a seguir mejorando el contenido y brindarte recursos de calidad.
+                Si necesitas adquirir acceso adicional para otra persona, puedes hacerlo fácilmente.
+            </p>
+            <button onclick="window.open('https://www.lecturavelozpro.com/')" class="buy-account-button">Comprar Otra
+                Cuenta</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Curso Lectura Veloz. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/curso.js"></script>
+    <script src="js/noLoggeado.js"></script>
+</body>
+
+</html>

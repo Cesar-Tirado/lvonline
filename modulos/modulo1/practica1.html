@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1: Test Inicial para Medir Velocidad</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 1: Test Inicial para Medir Velocidad</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto lo más rápido que puedas, pero asegurándote de comprender su contenido. 
+                    Haz clic en "Iniciar Test" para comenzar. El tiempo será registrado automáticamente.
+                </p>
+                <button id="start-test">Iniciar Test</button>
+
+                <div id="test-text" class="hidden">
+                    <p>
+                        "La lectura veloz es una habilidad que permite procesar grandes cantidades de información 
+                        en poco tiempo. Aunque suena complejo, se basa en técnicas sencillas que cualquiera puede aprender 
+                        con práctica. Su objetivo no es solo leer rápido, sino también comprender y retener lo leído."
+                    </p>
+                    <button id="finish-test">Terminar Lectura</button>
+                </div>
+                 <!-- Modal personalizado -->
+                 <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="mark-complete">Marcar como Completado</button>
+                   
+
+                </div>
+                
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/practica1.js"></script>
+</body>
+</html>

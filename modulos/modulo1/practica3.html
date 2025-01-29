@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Ejercicio de Detección de Distracciones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Ejercicio de Detección de Distracciones</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto y selecciona las palabras que consideres distracciones o que no tengan sentido en el contexto. 
+                    Haz clic en "Enviar Respuestas" para evaluar tu desempeño.
+                </p>
+                <div id="exercise">
+                    <h3>Texto:</h3>
+                    <p>
+                        La lectura <span class="word" data-distractor="false">rápida</span> es una técnica que permite <span class="word" data-distractor="false">procesar</span> 
+                        grandes <span class="word" data-distractor="false">cantidades</span> de <span class="word" data-distractor="false">información</span> 
+                        en <span class="word" data-distractor="false">menos</span> tiempo. Algunas <span class="word" data-distractor="true">zanahorias</span> 
+                        técnicas <span class="word" data-distractor="false">incluyen</span> la <span class="word" data-distractor="false">lectura</span> 
+                        por bloques y la eliminación de <span class="word" data-distractor="true">jirafas</span> subvocalización.
+                    </p>
+                    <button id="submit">Enviar Respuestas</button>
+                </div>
+                 <!-- Modal personalizado -->
+                 <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Evaluación Teórica</button>
+                    </div>
+                </div>
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete">Marcar como Completado</button>
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/practica3.js"></script>
+    <script src="../../js/noLoggeado.js"></script>
+
+</body>
+</html>

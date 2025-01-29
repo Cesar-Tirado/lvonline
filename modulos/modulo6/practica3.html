@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Lectura de Texto en Movimiento</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Lectura de Texto en Movimiento</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Observa cuidadosamente el texto que se desplaza horizontalmente. Cuando finalice el ejercicio, 
+                    selecciona la opción que mejor describe el contenido del texto mostrado.
+                </p>
+
+                <!-- Área de práctica -->
+                <div id="moving-text-container">
+                    <p id="moving-text"></p>
+                </div>
+                <button id="start-moving-text">Iniciar Ejercicio</button>
+
+                <!-- Opciones -->
+                <form id="moving-text-form" class="hidden">
+                    <h3>¿Qué tema abordaba el texto mostrado?</h3>
+                    <label>
+                        <input type="radio" name="moving-text" value="correct">
+                        La importancia de la lectura veloz en la vida diaria.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="moving-text" value="incorrect">
+                        Técnicas de relajación para mejorar el enfoque.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="moving-text" value="incorrect">
+                        Consejos para escribir textos académicos.
+                    </label><br>
+                    <button type="submit">Enviar Respuesta</button>
+                </form>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo6_practica3.js"></script>
+</body>
+</html>

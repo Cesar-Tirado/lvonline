@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2: Reconocimiento de Patrones</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 2: Reconocimiento de Patrones</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Observa el conjunto de palabras que aparecen y desaparecen rápidamente en el área de práctica. 
+                    Identifica cuál de las opciones dadas corresponde al patrón que sigue el texto mostrado.
+                </p>
+
+                <!-- Área de práctica -->
+                <div id="pattern-container">
+                    <p id="pattern-display"></p>
+                    <button id="start-pattern">Iniciar Ejercicio</button>
+                </div>
+
+                <!-- Opciones -->
+                <form id="pattern-form" class="hidden">
+                    <h3>¿Cuál es el patrón mostrado?</h3>
+                    <label>
+                        <input type="radio" name="pattern" value="correct">
+                        Secuencia: Lectura - Velocidad - Comprehensión
+                    </label><br>
+                    <label>
+                        <input type="radio" name="pattern" value="incorrect">
+                        Secuencia: Velocidad - Lectura - Retención
+                    </label><br>
+                    <label>
+                        <input type="radio" name="pattern" value="incorrect">
+                        Secuencia: Retención - Velocidad - Lectura
+                    </label><br>
+                    <button type="submit">Enviar Respuesta</button>
+                </form>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo6_practica2.js"></script>
+</body>
+</html>

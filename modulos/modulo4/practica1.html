@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1: Ajustando la Lectura a Contextos</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* Estilo para el seguimiento visual */
+        #tracking-area {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            margin: 20px auto;
+            background-color: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #moving-point {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: #14aff8;
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 1: Ajustando la Lectura a Contextos</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Esta práctica te ayudará a entrenar tu capacidad para ajustar tu lectura según el contexto. Completa los ejercicios a continuación.
+                </p>
+
+                <!-- Ejercicio 1: Escaneo de información -->
+                <div id="exercise1">
+                    <h3>1. Escaneo de Información</h3>
+                    <p>
+                        Lee el siguiente texto y responde las preguntas marcando las respuestas correctas.
+                    </p>
+                    <blockquote>
+                        "La lectura veloz permite identificar información clave en documentos largos, enfocándose en las secciones importantes. 
+                        Para lograrlo, es crucial dominar técnicas como la lectura por bloques y el uso de marcadores visuales. Estas habilidades 
+                        no solo aumentan la velocidad, sino que también mejoran la comprensión en entornos académicos y profesionales."
+                    </blockquote>
+                    <form id="exercise1-form">
+                        <label>
+                            <input type="checkbox" name="q1" value="correct"> La lectura veloz mejora la comprensión en entornos profesionales.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="q1" value="incorrect"> La lectura veloz se enfoca únicamente en la velocidad.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="q1" value="correct"> Las técnicas como la lectura por bloques son importantes.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="q1" value="incorrect"> La lectura veloz solo es útil en entornos académicos.
+                        </label>
+                    </form>
+                </div>
+
+                <!-- Ejercicio 2: Seguimiento Visual -->
+                <div id="exercise2">
+                    <h3>2. Seguimiento Visual</h3>
+                    <p>
+                        Sigue el punto en movimiento en la pantalla con tus ojos. Este ejercicio mejora tu capacidad para ajustar la velocidad y precisión de tu lectura.
+                    </p>
+                    <div id="tracking-area">
+                        <div id="moving-point"></div>
+                    </div>
+                </div>
+
+                <!-- Botón para enviar evaluación -->
+                <button id="submit-practice">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo4_practica1.js"></script>
+</body>
+</html>

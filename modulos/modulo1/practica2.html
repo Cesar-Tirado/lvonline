@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2: Identificación de Ideas Principales</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+      <!-- Barra de navegación con iconos -->
+      <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 2: Identificación de Ideas Principales</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto y selecciona las afirmaciones que correspondan a sus ideas principales. 
+                    Haz clic en "Enviar Respuestas" cuando hayas terminado.
+                </p>
+                <div id="exercise">
+                    <h3>Texto:</h3>
+                    <p>
+                        "La lectura veloz no solo se trata de leer rápidamente, sino también de comprender y retener lo que lees. 
+                        Esto se logra mediante técnicas específicas, como la lectura por bloques y la eliminación de la subvocalización. 
+                        Al practicar estas habilidades, puedes procesar grandes cantidades de información en menos tiempo."
+                    </p>
+                    <h3>Selecciona las ideas principales:</h3>
+                    <form id="main-ideas-form">
+                        <label>
+                            <input type="checkbox" name="idea" value="1">
+                            La lectura veloz se enfoca únicamente en la velocidad.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="idea" value="2">
+                            La lectura veloz combina velocidad con comprensión y retención.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="idea" value="3">
+                            Las técnicas como la lectura por bloques ayudan a mejorar la velocidad.
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="idea" value="4">
+                            La lectura veloz no requiere práctica constante.
+                        </label><br>
+                        <button type="submit">Enviar Respuestas</button>
+                    </form>
+                </div>
+                 <!-- Modal personalizado -->
+                 <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete">Marcar como Completado</button>
+
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/practica2.js"></script>
+    <script src="../../js/noLoggeado.js"></script>
+
+</body>
+</html>

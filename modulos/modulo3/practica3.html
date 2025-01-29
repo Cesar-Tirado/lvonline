@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Análisis de Patrones en Texto</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Análisis de Patrones en Texto</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    En el siguiente texto, identifica las palabras que aparecen en un patrón específico 
+                    (por ejemplo, palabras que riman o que tienen una longitud mayor a 7 caracteres). Haz clic en cada palabra que creas que cumple con el criterio.
+                </p>
+
+                <div id="pattern-text">
+                    <p>
+                        "La habilidad de <span class="concept" data-distractor="false">procesar</span> información 
+                        <span class="concept" data-distractor="false">rápidamente</span> puede mejorar la 
+                        <span class="concept" data-distractor="false">comprensión</span> y el 
+                        <span class="concept" data-distractor="false">análisis</span>. Esto requiere técnicas 
+                        <span class="concept" data-distractor="false">estructuradas</span> que permitan identificar palabras clave 
+                        y relacionarlas con el contexto general de la lectura. Sin embargo, la 
+                        <span class="concept" data-distractor="true">lectura</span> y la velocidad son factores importantes 
+                        pero no lo único relevante. Practicar de forma <span class="concept" data-distractor="false">consistente</span> 
+                        ayuda a consolidar habilidades."
+                    </p>
+                    <p>
+                        "En el mundo actual, la capacidad de <span class="concept" data-distractor="false">adaptación</span> y 
+                        la <span class="concept" data-distractor="true">velocidad</span> de aprendizaje son claves. 
+                        <span class="concept" data-distractor="true">Ejercicios</span> como los presentados aquí buscan 
+                        mejorar estas competencias. Recuerda que <span class="concept" data-distractor="false">estructura</span> 
+                        y práctica son fundamentales para lograr una <span class="concept" data-distractor="true">lectura</span> 
+                        efectiva."
+                    </p>
+                </div>
+                
+
+                <p id="criteria-message">Criterio: Palabras con más de 7 caracteres.</p>
+
+                <!-- Botón para enviar respuestas -->
+                <button id="submit-pattern-analysis">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo3_practica3.js"></script>
+</body>
+</html>

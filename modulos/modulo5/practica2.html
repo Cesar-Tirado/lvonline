@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 2: Percepción Visual y Velocidad de Reconocimiento</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    
+    <div class="module-container">
+        <header>
+            <h1>Práctica 2: Percepción Visual y Velocidad de Reconocimiento</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    En este ejercicio, se te presentarán palabras durante un breve lapso de tiempo. 
+                    Tu tarea es identificar si la palabra pertenece al contexto de la lectura veloz o no. 
+                    Selecciona las opciones correctas lo más rápido posible.
+                </p>
+                <button id="start-practice">Iniciar Práctica</button>
+
+                <div id="word-flash" class="hidden">
+                    <p id="flashing-word"></p>
+                    <button id="next-word" class="hidden">Siguiente</button>
+                </div>
+
+                <div id="questions" class="hidden">
+                    <h3>Identifica las palabras relacionadas</h3>
+                    <div id="options-container">
+                        <button class="word-option" data-correct="true">Comprensión</button>
+                        <button class="word-option" data-correct="true">Velocidad</button>
+                        <button class="word-option" data-correct="false">Desconexión</button>
+                        <button class="word-option" data-correct="false">Confusión</button>
+                        <button class="word-option" data-correct="true">Bloques</button>
+                    </div>
+                    <button id="submit-answers" class="hidden">Enviar Respuestas</button>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Práctica 2 del Módulo 5 completada con éxito!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo5_practica2.js"></script>
+</body>
+</html>

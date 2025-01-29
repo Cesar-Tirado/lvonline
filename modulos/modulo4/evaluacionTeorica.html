@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Teórica del Módulo 4</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Teórica del Módulo 4</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Responde las siguientes preguntas relacionadas con el contenido teórico del módulo. Debes obtener un puntaje mínimo del 80% para aprobar.
+                </p>
+                <form id="theory-evaluation-form">
+                    <h3>1. ¿Qué es el salto ocular en la lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q1" value="correct">
+                        Un movimiento rápido de los ojos entre palabras o bloques.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q1" value="incorrect">
+                        La habilidad de leer varias páginas al mismo tiempo.
+                    </label><br>
+
+                    <h3>2. ¿Cuál es el propósito de eliminar la subvocalización?</h3>
+                    <label>
+                        <input type="radio" name="q2" value="correct">
+                        Incrementar la velocidad sin sacrificar comprensión.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q2" value="incorrect">
+                        Mejorar la dicción mientras se lee.
+                    </label><br>
+
+                    <h3>3. ¿Cómo se calcula el número de palabras por minuto?</h3>
+                    <label>
+                        <input type="radio" name="q3" value="correct">
+                        Dividiendo las palabras leídas por el tiempo en minutos.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q3" value="incorrect">
+                        Multiplicando las palabras leídas por el tiempo total.
+                    </label><br>
+
+                    <h3>4. ¿Cuál es el beneficio de la lectura por bloques?</h3>
+                    <label>
+                        <input type="radio" name="q4" value="correct">
+                        Procesar más información en menos tiempo.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q4" value="incorrect">
+                        Leer palabra por palabra para mejorar precisión.
+                    </label><br>
+
+                    <h3>5. ¿Qué técnica es útil para mantener la concentración durante la lectura veloz?</h3>
+                    <label>
+                        <input type="radio" name="q5" value="correct">
+                        Uso de guías visuales como el dedo o un puntero.
+                    </label><br>
+                    <label>
+                        <input type="radio" name="q5" value="incorrect">
+                        Leer en voz alta mientras se avanza.
+                    </label><br>
+
+                    <button type="submit">Enviar Respuestas</button>
+                </form>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Evaluación completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Evaluación Práctica</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo4_evaluacionTeorica.js"></script>
+</body>
+</html>

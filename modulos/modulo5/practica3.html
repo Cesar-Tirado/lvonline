@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Comprensión en Contextos Extensos</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Comprensión en Contextos Extensos</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Lee el siguiente texto de manera rápida pero enfocada. Luego responde las preguntas relacionadas
+                    con el contenido para evaluar tu comprensión.
+                </p>
+
+                <div id="reading-text">
+                    <p>
+                        "La lectura veloz no solo incrementa la cantidad de información procesada, sino también mejora
+                        la habilidad para conectar conceptos en menos tiempo. Esta técnica permite abordar textos complejos 
+                        y densos, como investigaciones científicas o manuales técnicos, con una estrategia más efectiva. 
+                        Aunque la práctica constante es esencial, desarrollar la capacidad de previsualizar y categorizar 
+                        información también juega un papel crucial."
+                    </p>
+                    <button id="show-questions">Responder Preguntas</button>
+                </div>
+
+                <div id="questions" class="hidden">
+                    <h3>Preguntas de Comprensión</h3>
+                    <ol>
+                        <li>
+                            ¿Qué habilidad adicional mejora la lectura veloz según el texto?
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q1" value="correct">
+                                        La capacidad para conectar conceptos.
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q1" value="incorrect">
+                                        La memorización de datos aislados.
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Según el texto, ¿qué tipo de documentos se pueden abordar mejor con la lectura veloz?
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q2" value="correct">
+                                        Textos científicos y manuales técnicos.
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q2" value="incorrect">
+                                        Novelas de ficción y poesía.
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            ¿Qué es crucial para mejorar la lectura veloz según el texto?
+                            <ul>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q3" value="correct">
+                                        La práctica constante.
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>
+                                        <input type="radio" name="q3" value="incorrect">
+                                        El acceso a tecnología avanzada.
+                                    </label>
+                                </li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <button id="submit-answers">Enviar Respuestas</button>
+                </div>
+
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Práctica 3 del Módulo 5 completada con éxito!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo5_practica3.js"></script>
+</body>
+</html>

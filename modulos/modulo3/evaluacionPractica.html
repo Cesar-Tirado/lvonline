@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Práctica del Módulo 3</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+       <!-- Barra de navegación con iconos -->
+       <nav class="navbar2">
+        <!-- Icono de Inicio a la izquierda -->
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+
+        <!-- Icono de Cerrar Sesión a la derecha -->
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Práctica del Módulo 3</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Completa los ejercicios prácticos a continuación. Debes obtener un puntaje mínimo del 85% para aprobar esta evaluación. Lee atentamente y selecciona las respuestas correctas o interactúa con los elementos según lo indicado.
+                </p>
+
+                <!-- Ejercicio 1: Identificación de palabras clave -->
+                <div id="exercise1">
+                    <h3>1. Identificación de Palabras Clave</h3>
+                    <p>
+                        Selecciona las palabras clave en el texto siguiente:
+                    </p>
+                    <p>
+                        La <span class="word" data-keyword="true">lectura</span> veloz es una <span class="word" data-keyword="true">habilidad</span> 
+                        que <span class="word" data-keyword="false">elefantes</span> permite procesar <span class="word" data-keyword="true">información</span> 
+                        de <span class="word" data-keyword="true">manera</span> <span class="word" data-keyword="false">mariposas</span> más eficiente.
+                    </p>
+                </div>
+
+                <!-- Ejercicio 2: Asociaciones -->
+                <div id="exercise2">
+                    <h3>2. Asociaciones Correctas</h3>
+                    <p>
+                        Arrastra cada palabra hacia su definición correcta:
+                    </p>
+                    <div class="drag-container">
+                        <div class="draggable" draggable="true" id="block-reading">Lectura por bloques</div>
+                        <div class="draggable" draggable="true" id="subvocalization">Subvocalización</div>
+                        <div class="draggable" draggable="true" id="visual-guides">Guías visuales</div>
+                    </div>
+                    <div class="drop-container">
+                        <div class="drop-target" data-answer="block-reading">Captar grupos de palabras al leer</div>
+                        <div class="drop-target" data-answer="subvocalization">Pronunciar mentalmente mientras se lee</div>
+                        <div class="drop-target" data-answer="visual-guides">Usar un lápiz o dedo para guiar la lectura</div>
+                    </div>
+                    
+                </div>
+
+                <!-- Botón para enviar evaluación -->
+                <button id="submit-evaluation">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Evaluación completada! Redirigiendo al siguiente módulo.</p>
+                        <button id="close-modal">Continuar</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo3_evaluacionPractica"></script>
+</body>
+</html>

@@ -1,0 +1,749 @@
+/* General */
+body {
+    background-color: #203040; /* Fondo general */
+    color: #ffffff; /* Color de letra general */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #ffffff; /* Asegura que el texto sea legible sobre el fondo */
+}
+
+/* Encabezados */
+header {
+    background-color: #14aff8; /* Fondo de encabezados */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 20px 20px; /* Márgenes en los costados, arriba y abajo */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+/* Contenedor principal de los módulos */
+.main-container {
+    background-color: #2c3e50; /* Fondo del contenedor principal */
+    border-radius: 10px;
+    margin: 20px 20px; /* Márgenes superior, inferior y laterales */
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Texto de instrucción */
+.main-container .instructions {
+    font-size: 1.2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de módulos */
+.modulos {
+    display: flex; /* Cambia de grid a flex */
+    flex-direction: column; /* Asegura que los módulos estén en una columna */
+    align-items: center; /* Centra los módulos horizontalmente */
+    gap: 20px; /* Espacio entre los módulos */
+}
+
+/* Contenedores de Módulos */
+.modulo {
+    width: 100%;
+    max-width: 600px;
+    background: #14aff8; /* Color base igual al título */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+    color: white; /* Texto blanco */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.modulo:hover {
+    background: #0d8de0; /* Color ligeramente más oscuro en hover */
+}
+
+
+/* Títulos de módulos */
+.modulo-titulo {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ffffff; /* Color del texto */
+    text-align: center;
+    padding-bottom: 5px; /* Espacio entre el texto y el subrayado */
+}
+
+/* Submódulos desplegables */
+.submodulos {
+    list-style: none;
+    padding: 10px 0 0;
+    margin: 0;
+    max-height: 0; /* Inicialmente oculto */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background: #ffffff; /* Fondo del submódulo */
+    border-top: 1px solid #788490;
+}
+
+.submodulos.open {
+    max-height: 300px; /* Altura máxima cuando está desplegado */
+    overflow-y: auto; /* Permite desplazarse si hay muchos submódulos */
+}
+
+.submodulo-link {
+    display: block;
+    padding: 10px;
+    background: #f4f4f4; /* Fondo claro */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #788490; /* Texto sobre fondo claro */
+    transition: background 0.3s, color 0.3s;
+}
+
+.submodulo-link:hover {
+    background: #14aff8; /* Fondo al pasar el cursor */
+    color: white; /* Texto al pasar el cursor */
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 100%;
+    background-color: #f4f4f4; /* Fondo claro */
+    border: 1px solid #788490;
+    border-radius: 5px;
+    margin: 20px 0;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #14aff8; /* Fondo de progreso */
+    width: 0%;
+    transition: width 0.3s ease;
+}
+/* Título de la barra de progreso */
+.progress-title {
+    text-align: center;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #ffffff; /* Color blanco para que contraste */
+}
+/* Fondo oscuro */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Contenido del modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #203040;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1001;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Mostrar el modal */
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Botón del modal */
+.modal button {
+    background: #14aff8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.modal button:hover {
+    background: #0d8de0;
+}
+/* Estilo para el enlace "Comprar Acceso al Curso" */
+.modal a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: underline;
+    color: #fff;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal a:hover {
+    color: #0d8de0;
+}
+/* General del Slider */
+.slider-container {
+    width: 90%; /* Cambiado de 100% a 90% para agregar márgenes laterales */
+    margin: 0 auto; /* Centrar el contenedor */
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.card {
+    flex: 0 0 calc(50% - 10px); /* Cada tarjeta ocupa la mitad del contenedor menos el margen */
+    margin: 5px; /* Margen reducido */
+    text-align: center;
+    background-color: #203040;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+}
+
+.card h2 {
+    font-size: 1.2em;
+    color: #14aff8; /* Texto más oscuro */
+    margin: 10px 0;
+}
+
+.card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card ul li {
+    margin: 5px 0;
+}
+
+.card ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.card ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.pagination .dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background: #ddd;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.pagination .dot.active {
+    background: #14aff8;
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        flex: 0 0 calc(100% - 10px); /* Ocupa el 100% menos el margen */
+    }
+}
+
+/* Estilo para la sección de indicaciones */
+.indicaciones {
+    background-color: #2c3e50; /* Fondo blanco con algo de transparencia */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: #fff; /* Texto oscuro para buena legibilidad */
+    font-size: 1.2em;
+    line-height: 1.5em;
+    text-align: left;
+}
+
+.indicaciones h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.indicaciones ul {
+   
+    margin-left: 20px;
+    padding-left: 10px;
+}
+/* Fondo general de la página */
+body {
+    background-image: url('/assets/images/fondo.jpg'); /* Ajusta la ruta si es necesario */
+    background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
+    color: #ffffff; /* Asegura que el texto sea legible sobre el fondo */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo de la sección de recursos */
+.resources-section {
+    background-color: #2c3e50;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.resources-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.resources-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de recursos */
+.resources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo de cada recurso */
+.resource-item {
+    background-color: #203040;
+    border-radius: 10px;
+    padding: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.resource-item:hover {
+    transform: scale(1.05);
+}
+
+.resource-item img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.resource-item h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #14aff8;
+}
+
+.resource-item a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #14aff8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.resource-item a:hover {
+    background-color: #0d8de0;
+}
+
+/* Sección del video */
+.video-section {
+    background-color: #2c3e50;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.video-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Contenedor del video */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #000; /* Fondo mientras carga el video */
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background-color: #203040;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid #14aff8;
+}
+
+/* Sección de recordatorio */
+.reminder-section {
+    background-color: #203040;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+}
+
+.reminder-container h2 {
+    color: #14aff8;
+    margin-bottom: 10px;
+}
+
+.reminder-container p {
+    margin: 10px 0;
+    line-height: 1.5;
+    font-size: 1.1em;
+}
+
+.buy-account-button {
+    background-color: #14aff8;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-account-button:hover {
+    background-color: #0d8de0;
+}
+
+.menu-header {
+    background-color: #14aff8; /* Color de contraste */
+    color: #ffffff; /* Color de texto */
+    text-align: center;
+    padding: 20px;
+    margin: 20px 10%; /* Márgenes arriba/abajo: 20px, Izquierda/Derecha: 10% */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-header h2 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.menu-header p {
+    font-size: 1em;
+    margin-top: 10px;
+    color: #e3f2fd; /* Un tono más claro para el texto adicional */
+}
+
+.indicaciones h2 {
+    text-align: center !important;
+}
+/* Estilo del Botón */
+.complete-btn {
+    background: #14aff8;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.complete-btn:disabled {
+    background: grey;
+    cursor: not-allowed;
+}
+
+/* Contenedor General de la Línea de Tiempo */
+.timeline-container {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 900px;
+}
+
+/* Título Principal */
+.timeline-container h2 {
+    font-size: 2rem;
+    color: #14aff8;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+/* Subtítulo con Instrucciones */
+.timeline-container p {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Estilo General de la Línea de Tiempo */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 3px solid #14aff8;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 900px;
+    background: #2c3e50;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Estilo de Cada Paso */
+.step {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid #203040;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+/* Cuando el módulo está completado */
+.step.completed {
+    background: #14aff8;
+    color: white;
+    border: 2px solid #ffffff;
+    transform: scale(1.1);
+}
+
+/* Estilo especial para la meta final */
+.goal {
+    background: gold;
+    font-weight: bold;
+    border: 2px solid #fff;
+}
+
+/* Ajuste para que se vea bien en pantallas pequeñas */
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        width: 100px;
+        height: 100px;
+        font-size: 1rem;
+    }
+}
+/* Estilo básico para el botón */
+#downloadCertificate {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #14aff8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+#downloadCertificate:disabled {
+    cursor: not-allowed;
+}
+
+#downloadCertificate:not(:disabled) {
+    opacity: 1;
+}
+/* Estilo general para la barra de navegación */
+.navbar2 {
+    display: flex;
+    justify-content: space-between; /* Separación entre los íconos */
+    align-items: center;
+    padding: 10px 50px; /* Más espacio lateral para centrar los iconos */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    pointer-events: none; /* Contenedor invisible */
+}
+
+/* Estilo para los iconos */
+.nav-home img, .nav-logout img {
+    width: 36px;  
+    height: 36px;
+    cursor: pointer;
+    pointer-events: auto; /* Permitir clic solo en los iconos */
+}
+
+
+.nav-logout {
+    margin-right: 80px; /* Más margen a la derecha */
+}
+
+/* Eliminar bordes de los botones */
+.nav-logout, .nav-home {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+/* Efecto hover para los iconos */
+.nav-home img:hover, .nav-logout img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Media Query para hacerlo responsivo */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1px 1px; /* Reducción de padding lateral en pantallas pequeñas */
+    }
+
+    .nav-home img, .nav-logout img {
+        width: 32px;  
+        height: 32px;
+    }
+}
+.nav-home {
+    visibility: hidden; /* Ícono invisible pero mantiene el espacio */
+}
+.complete-btn {
+    margin: 15px 0; /* Margen arriba y abajo */
+    padding: 10px 20px; /* Espaciado interno opcional para un mejor diseño */
+    font-size: 16px; /* Ajusta el tamaño del texto si es necesario */
+    background-color: #14aff8; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Elimina el borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor a puntero */
+}
+
+.complete-btn:hover {
+    background-color: #0d8de0; /* Cambia el color en hover */
+}
+
+@media (max-width: 768px) {
+    .card ul {
+        padding: 0 10px; /* Añade un pequeño espacio interno a los lados */
+        text-align: left; /* Alinea el texto a la izquierda */
+    }
+
+    .card ul li {
+        list-style-type: disc; /* Cambia el estilo de los marcadores */
+        margin: 5px 10px; /* Margen arriba/abajo y a los lados */
+    }
+
+
+    .card h2 {
+        margin: 0 15px; /* Ajusta el margen a ambos lados para pantallas pequeñas */
+    }
+}
+
+.checklist {
+    list-style: none; /* Elimina cualquier marcador predeterminado */
+    padding: 0; /* Elimina el padding de la lista */
+    margin: 0; /* Elimina el margen de la lista */
+}
+
+.checklist li {
+    position: relative; /* Para colocar el check con ::before */
+    padding-left: 25px; /* Espacio a la izquierda para el icono */
+    margin-bottom: 10px; /* Espaciado entre los elementos */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente */
+}
+
+.checklist li::before {
+    content: "✔"; /* Símbolo de check */
+    color: #14aff8; /* Color del check */
+    font-size: 1rem; /* Tamaño del check */
+    position: absolute; /* Posición absoluta para alinear el check */
+    left: 0; /* Posición horizontal del check */
+    top: 50%; /* Posiciona el check verticalmente */
+    transform: translateY(-50%); /* Centra el check verticalmente */
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Práctica del Módulo 7</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Evaluación Práctica del Módulo 7</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    Completa los ejercicios prácticos. Debes obtener un puntaje mínimo del 90% para aprobar. 
+                    Selecciona las opciones correctas y sigue las instrucciones en pantalla.
+                </p>
+
+                <!-- Ejercicio 1 -->
+                <div id="exercise1">
+                    <h3>1. Selección de palabras clave</h3>
+                    <p>Selecciona las palabras clave que son importantes para comprender el texto:</p>
+                    <p>
+                        La <span class="word" data-keyword="true">lectura</span> <span class="word" data-keyword="false">rápida</span> es una <span class="word" data-keyword="true">habilidad</span> que <span class="word" data-keyword="false">ayuda</span> a <span class="word" data-keyword="true">procesar</span> información de manera <span class="word" data-keyword="true">efectiva</span>.
+                    </p>
+                </div>
+
+                <!-- Ejercicio 2 -->
+                <div id="exercise2">
+                    <h3>2. Seguimiento visual</h3>
+                    <p>
+                        Sigue la línea con tu vista y selecciona las palabras que coinciden con el patrón mostrado a continuación:
+                    </p>
+                    <div id="pattern" class="pattern">efectiva habilidad procesar lectura</div>
+                    <div id="text-to-match" class="text-to-match">
+                        <p>lectura procesar habilidad efectiva rápida habilidad efectiva lectura procesar</p>
+                    </div>
+                </div>
+
+                <button id="submit-evaluation">Enviar Respuestas</button>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">¡Evaluación Completada!</p>
+                        <button id="close-modal">Finalizar Módulo</button>
+                    </div>
+                </div>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo7_evaluacionPractica.js"></script>
+</body>
+</html>

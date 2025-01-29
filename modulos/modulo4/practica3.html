@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 3: Reconocimiento Rápido de Palabras</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body>
+        <!-- Barra de navegación con iconos -->
+        <nav class="navbar2">
+            <!-- Icono de Inicio a la izquierda -->
+            <a href="../../curso.html" class="nav-home">
+                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+            </a>
+    
+            <!-- Icono de Cerrar Sesión a la derecha -->
+            <button id="logout" class="nav-logout">
+                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+            </button>
+        </nav>
+    <div class="module-container">
+        <header>
+            <h1>Práctica 3: Reconocimiento Rápido de Palabras</h1>
+        </header>
+        <main>
+            <section class="content">
+                <h2>Instrucciones</h2>
+                <p>
+                    En esta práctica, verás bloques de palabras aparecer y desaparecer rápidamente. Tu tarea es seleccionar las palabras específicas 
+                    que se te indiquen. Esto entrenará tu velocidad de reconocimiento y atención.
+                </p>
+
+                <div id="word-container" class="hidden">
+                    <p id="current-word"></p>
+                </div>
+
+                <div id="word-bank" class="hidden">
+                    <h3>Selecciona las palabras que viste:</h3>
+                    <div id="options">
+                        <!-- Las opciones se generarán dinámicamente -->
+                    </div>
+                </div>
+
+                <button id="start-practice">Iniciar Práctica</button>
+                <button id="submit-practice" class="hidden">Enviar Respuestas</button>
+
+                <!-- Resultados -->
+                <div id="results" class="hidden">
+                    <h2>Resultados</h2>
+                    <p id="result-message"></p>
+                    <button id="retry">Volver a Intentar</button>
+                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                </div>
+
+                <!-- Modal personalizado -->
+                <div id="custom-modal" class="hidden">
+                    <div class="modal-content">
+                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
+                        <button id="close-modal">Siguiente</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="../../js/noLoggeado.js"></script>
+    <script src="../../js/modulo4_practica3.js"></script>
+</body>
+</html>
