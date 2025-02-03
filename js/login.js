@@ -1,6 +1,6 @@
 const users = {
     "usuario1": "12345",
-    "usuario2": "abcde"
+    "USUARIOLV": "IN3$C"
 };
 
 document.getElementById("loginForm").addEventListener("submit", function(e) {
