@@ -913,3 +913,236 @@ h1 {
     }
 }
 
+.exercise-area {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    height: 300px;
+    border: 2px solid #ddd;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+#moving-dot {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.exercise-btn {
+    background-color: #14aff8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.exercise-btn:hover {
+    background-color: #0d8dd4;
+}
+
+.hidden {
+    display: none;
+}
+.block {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 2px solid #14aff8;
+    width: 80%;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.hidden {
+    display: none;
+}
+
+.word {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.word:hover {
+    background-color: #14aff8;
+    color: white;
+}
+
+.selected {
+    background-color: #14aff8;
+    color: white;
+}
+
+#countdown {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #14aff8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #0d8dd4;
+}
+/* Estilo del área de seguimiento (más grande) */
+#tracking-area {
+    width: 500px;
+    height: 350px;
+    border: 3px solid #333;
+    position: relative;
+    margin: 20px auto;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Punto en movimiento */
+#moving-point {
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    transition: left 0.2s, top 0.2s;
+    text-align: center;
+    line-height: 25px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Botones de selección */
+.tracking-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tracking-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tracking-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ocultar elementos */
+.hidden {
+    display: none;
+}
+#blocks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+}
+
+.block {
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.highlight {
+    background-color: #14aff8;
+    color: white;
+    border: 2px solid #0e7ac4;
+}
+
+.hidden {
+    display: none;
+}
+
+#start-tracking, .answer-option {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #14aff8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+#blocks-container {
+    display: flex !important; /* Asegura que los bloques sean visibles */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.block {
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.highlight {
+    background-color: #14aff8;
+    color: white;
+    border: 2px solid #0e7ac4;
+}
+
+
+#tracking-area {
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    position: relative;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+}
+
+#moving-block {
+    width: 50px;
+    height: 50px;
+    background-color: red; /* 🔹 Color visible */
+    position: absolute;
+    display: none; /* 🔹 Se mostrará con JS */
+    transition: transform 0.1s linear;
+}

@@ -1,14 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const words = ["rápido", "clave", "información", "subvocalización", "práctica", "veloz", "lectura"];
+    const words = ["rápido", "clave", "información", "subvocalización", "práctica", "veloz", "lectura", "análisis", "memoria"];
     let displayedWords = [];
     let selectedWords = [];
-    let currentRound = 0;
-    const maxRounds = 5;
 
     const startButton = document.getElementById("start-pattern-test");
     const patternContainer = document.getElementById("pattern-container");
     const wordDisplay = document.getElementById("word-display");
     const optionsContainer = document.getElementById("options-container");
+    const wordOptions = document.getElementById("word-options");
     const submitButton = document.getElementById("submit-pattern");
     const results = document.getElementById("results");
     const resultMessage = document.getElementById("result-message");
@@ -18,66 +17,66 @@ document.addEventListener("DOMContentLoaded", () => {
     startButton.addEventListener("click", () => {
         startButton.classList.add("hidden");
         patternContainer.classList.remove("hidden");
-        startRound();
+        startTest();
     });
 
-    function startRound() {
-        if (currentRound >= maxRounds) {
-            endPractice();
-            return;
-        }
-
-        currentRound++;
-        displayedWords = generateRandomWords();
-        selectedWords = [];
-
-        wordDisplay.textContent = displayedWords.join(", ");
+    function startTest() {
+        displayedWords = getRandomWords(6);
+        wordDisplay.textContent = displayedWords.join(" - ");
+        
         setTimeout(() => {
             wordDisplay.textContent = ""; // Ocultar palabras
+            patternContainer.classList.add("hidden");
             showOptions();
         }, 2000); // Mostrar palabras por 2 segundos
     }
 
-    function generateRandomWords() {
+    function getRandomWords(num) {
         const shuffled = [...words].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, 5); // Seleccionar 5 palabras aleatorias
+        return shuffled.slice(0, num);
     }
 
     function showOptions() {
-        optionsContainer.innerHTML = ""; // Limpiar opciones
-        words.forEach((word) => {
+        optionsContainer.classList.remove("hidden");
+        wordOptions.innerHTML = "";
+
+        const optionsList = [...displayedWords, ...getRandomWords(3)].sort(() => Math.random() - 0.5);
+
+        optionsList.forEach((word) => {
             const option = document.createElement("button");
             option.textContent = word;
             option.classList.add("option");
             option.addEventListener("click", () => {
-                option.classList.toggle("selected");
+                // Controlar la cantidad máxima de selecciones
                 if (option.classList.contains("selected")) {
-                    selectedWords.push(word);
-                } else {
+                    option.classList.remove("selected");
+                    option.style.backgroundColor = ""; // Restaurar color original
                     selectedWords = selectedWords.filter((w) => w !== word);
+                } else if (selectedWords.length < displayedWords.length) {
+                    option.classList.add("selected");
+                    option.style.backgroundColor = "#14aff8"; // 🔹 Cambiar color al seleccionar
+                    selectedWords.push(word);
                 }
             });
-            optionsContainer.appendChild(option);
+            wordOptions.appendChild(option);
         });
+
         submitButton.classList.remove("hidden");
     }
 
     submitButton.addEventListener("click", () => {
         const correctSelections = selectedWords.filter((word) => displayedWords.includes(word));
-        const score = (correctSelections.length / displayedWords.length) * 100;
+        const maxScore = 100; // Para evitar puntajes mayores al 100%
+        let score = Math.min((correctSelections.length / displayedWords.length) * 100, maxScore);
 
-        if (currentRound < maxRounds) {
-            startRound();
-        } else {
-            displayResults(score);
-        }
+        displayResults(score);
     });
 
     function displayResults(score) {
-        patternContainer.classList.add("hidden");
+        optionsContainer.classList.add("hidden");
         results.classList.remove("hidden");
 
-        if (score >= 70) {
+        if (score >= 66) {
             resultMessage.textContent = `¡Felicidades! Has aprobado con un puntaje de ${score.toFixed(2)}%.`;
             markCompleteButton.classList.remove("hidden");
         } else {
@@ -86,11 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // 🔹 Botón de "Reintentar" ahora recarga la página completamente
     retryButton.addEventListener("click", () => {
-        currentRound = 0;
-        results.classList.add("hidden");
-        patternContainer.classList.remove("hidden");
-        startRound();
+        location.reload();
     });
 
     markCompleteButton.addEventListener("click", () => {
@@ -104,7 +101,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("close-modal").addEventListener("click", () => {
             modal.classList.remove("visible");
-            window.location.href = "/modulos/modulo7/practica2.html";
+            window.location.href = "/modulos/modulo7/practica2.html"; // 🔹 Redirigir al siguiente módulo
         });
+
+        // 🔹 Redirigir inmediatamente al hacer clic en "Marcar como Completado"
+        window.location.href = "/modulos/modulo7/practica2.html";
     });
 });

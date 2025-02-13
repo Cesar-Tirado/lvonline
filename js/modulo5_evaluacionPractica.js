@@ -1,92 +1,109 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Ejercicio 1
-    const memorizeButton = document.getElementById("start-memorize");
-    const memorizeSection = document.getElementById("words-to-memorize");
-    const selectSection = document.getElementById("exercise1-select");
-    const wordOptions = document.querySelectorAll(".word-option");
-    let selectedWords = [];
+    const startExerciseButton = document.getElementById("start-exercise");
+    const phraseContainer = document.getElementById("phrase-container");
+    const phraseDisplay = document.getElementById("phrase-display");
+    const questionsContainer = document.getElementById("questions-container");
+    const questionText = document.getElementById("question-text");
+    const answerOptions = document.querySelectorAll(".answer-option");
+    const submitButton = document.getElementById("submit-evaluation");
+    const resultsContainer = document.getElementById("results");
+    const resultMessage = document.getElementById("result-message");
+    const retryButton = document.getElementById("retry");
+    const markCompleteButton = document.getElementById("mark-complete");
 
-    memorizeButton.addEventListener("click", () => {
-        memorizeSection.classList.remove("hidden");
-        setTimeout(() => {
-            memorizeSection.classList.add("hidden");
-            selectSection.classList.remove("hidden");
-        }, 5000); // Mostrar palabras durante 5 segundos
-    });
+    let correctAnswers = 0;
+    let currentPhraseIndex = 0;
+    let currentQuestionIndex = 0;
 
-    wordOptions.forEach((word) => {
-        word.addEventListener("click", () => {
-            word.classList.toggle("selected");
-            if (word.classList.contains("selected")) {
-                selectedWords.push(word.textContent);
-            } else {
-                selectedWords = selectedWords.filter((w) => w !== word.textContent);
-            }
-        });
-    });
+    const phrases = [
+        "La lectura veloz permite absorber información más rápido.",
+        "Eliminando la subvocalización, puedes leer a mayor velocidad.",
+        "Usar un lápiz como guía visual mejora la concentración.",
+        "Leer en bloques amplía el campo visual y reduce pausas innecesarias.",
+        "La práctica constante es clave para mejorar la velocidad de lectura."
+    ];
 
-    // Ejercicio 2
-    const trackingButton = document.getElementById("start-tracking");
-    const blocksContainer = document.getElementById("blocks-container");
-    const blocks = document.querySelectorAll(".block");
-    let trackingStarted = false;
-
-    trackingButton.addEventListener("click", () => {
-        trackingButton.classList.add("hidden");
-        blocksContainer.classList.remove("hidden");
-        trackingStarted = true;
-
-        setTimeout(() => {
-            blocks.forEach((block) => block.classList.remove("highlight"));
-            blocks[2].classList.add("highlight");
-        }, 2000); // Resaltar el bloque correcto después de 2 segundos
-    });
-
-    // Evaluación
-    document.getElementById("submit-evaluation").addEventListener("click", () => {
-        let score = 0;
-
-        // Validación Ejercicio 1
-        const correctWords = ["Rendimiento", "Velocidad", "Comprehensión", "Práctica", "Subvocalización"];
-        const correctSelections = selectedWords.filter((word) => correctWords.includes(word));
-        const exercise1Score = (correctSelections.length / correctWords.length) * 50;
-        score += exercise1Score;
-
-        // Validación Ejercicio 2
-        if (trackingStarted && blocks[2].classList.contains("highlight")) {
-            score += 50;
+    const questions = [
+        {
+            question: "¿Cuál es una técnica para leer más rápido?",
+            options: ["Subvocalizar más", "Usar guías visuales", "Leer más lento", "Omitir palabras"],
+            correct: "Usar guías visuales"
+        },
+        {
+            question: "¿Por qué es importante leer en bloques?",
+            options: ["Para reducir pausas", "Para aumentar distracciones", "Para leer menos", "Para repetir frases"],
+            correct: "Para reducir pausas"
+        },
+        {
+            question: "¿Cómo se puede mejorar la velocidad de lectura?",
+            options: ["Practicando", "Leyendo menos", "Haciendo pausas largas", "Hablando en voz alta"],
+            correct: "Practicando"
+        },
+        {
+            question: "¿Qué técnica reduce la subvocalización?",
+            options: ["Leer en voz alta", "Usar un lápiz como guía", "Repetir cada palabra", "Cerrar los ojos"],
+            correct: "Usar un lápiz como guía"
         }
+    ];
 
-        const resultMessage = document.getElementById("result-message");
-        const retryButton = document.getElementById("retry");
-        const markCompleteButton = document.getElementById("mark-complete");
+    startExerciseButton.addEventListener("click", () => {
+        phraseContainer.classList.remove("hidden");
+        startExerciseButton.classList.add("hidden");
+        showNextPhrase();
+    });
 
-        if (score >= 90) {
-            resultMessage.textContent = `¡Felicidades! Has aprobado con un puntaje total de ${score}%.`;
-            markCompleteButton.classList.remove("hidden");
-            retryButton.classList.add("hidden");
+    function showNextPhrase() {
+        if (currentPhraseIndex < phrases.length) {
+            phraseDisplay.textContent = phrases[currentPhraseIndex];
+            currentPhraseIndex++;
+            setTimeout(showNextPhrase, 1500);
         } else {
-            resultMessage.textContent = `Has obtenido ${score}%. No alcanzaste el puntaje mínimo requerido. Intenta nuevamente.`;
-            retryButton.classList.remove("hidden");
-            markCompleteButton.classList.add("hidden");
+            phraseContainer.classList.add("hidden");
+            showQuestions();
         }
+    }
 
-        document.getElementById("results").classList.remove("hidden");
+    function showQuestions() {
+        questionsContainer.classList.remove("hidden");
+        loadQuestion();
+    }
+
+    function loadQuestion() {
+        if (currentQuestionIndex < questions.length) {
+            questionText.textContent = questions[currentQuestionIndex].question;
+            answerOptions.forEach((button, index) => {
+                button.textContent = questions[currentQuestionIndex].options[index];
+                button.addEventListener("click", checkAnswer);
+            });
+        } else {
+            submitButton.classList.remove("hidden");
+        }
+    }
+
+    function checkAnswer(event) {
+        if (event.target.textContent === questions[currentQuestionIndex].correct) {
+            correctAnswers++;
+        }
+        currentQuestionIndex++;
+        loadQuestion();
+    }
+
+    submitButton.addEventListener("click", () => {
+        resultsContainer.classList.remove("hidden");
+        if (correctAnswers >= 3) {
+            resultMessage.textContent = `¡Felicidades! Has aprobado con ${correctAnswers} respuestas correctas.`;
+            markCompleteButton.classList.remove("hidden");
+        } else {
+            resultMessage.textContent = `Has obtenido ${correctAnswers} respuestas correctas. Intenta nuevamente.`;
+            retryButton.classList.remove("hidden");
+        }
     });
 
-    // Modal
-    document.getElementById("mark-complete").addEventListener("click", () => {
-        const progress = JSON.parse(localStorage.getItem("courseProgress")) || {};
-        const submodule = window.location.pathname.split("/").pop();
-        progress[submodule] = "completed";
-        localStorage.setItem("courseProgress", JSON.stringify(progress));
+    markCompleteButton.addEventListener("click", () => {
+        window.location.href = "/modulos/modulo6/teoria1.html";
+    });
 
-        const modal = document.getElementById("custom-modal");
-        modal.classList.add("visible");
-
-        document.getElementById("close-modal").addEventListener("click", () => {
-            modal.classList.remove("visible");
-            window.location.href = "/modulos/modulo6/teoria1.html";
-        });
+    retryButton.addEventListener("click", () => {
+        window.location.reload();
     });
 });

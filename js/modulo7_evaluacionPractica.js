@@ -1,78 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const words = document.querySelectorAll(".word");
-    const keywords = document.querySelectorAll(".word[data-keyword='true']");
-    let selectedWords = [];
+    let startTime, endTime, wordsRead;
+    
+    // Iniciar lectura
+    document.getElementById("start-reading").addEventListener("click", () => {
+        startTime = new Date();
+        document.getElementById("reading-container").classList.remove("hidden");
+        document.getElementById("start-reading").classList.add("hidden");
 
-    words.forEach((word) => {
-        word.addEventListener("click", () => {
-            word.classList.toggle("selected");
-            if (word.classList.contains("selected")) {
-                selectedWords.push(word);
-            } else {
-                selectedWords = selectedWords.filter((w) => w !== word);
-            }
+        let timer = document.getElementById("timer");
+        let seconds = 0;
+        let interval = setInterval(() => {
+            seconds++;
+            timer.textContent = seconds;
+        }, 1000);
+
+        document.getElementById("finish-reading").addEventListener("click", () => {
+            clearInterval(interval);
+            endTime = new Date();
+            let timeTaken = (endTime - startTime) / 1000;
+            wordsRead = document.getElementById("reading-text").textContent.split(" ").length;
+            let wordsPerMinute = Math.round((wordsRead / timeTaken) * 60);
+
+            document.getElementById("reading-container").classList.add("hidden");
+            document.getElementById("question-container").classList.remove("hidden");
+            
+            sessionStorage.setItem("WPM", wordsPerMinute);
         });
     });
 
-    const patternWords = document.querySelectorAll("#pattern .word");
-    const matchWords = document.querySelectorAll("#text-to-match span");
-    let correctMatches = 0;
-
-    matchWords.forEach((word) => {
-        word.addEventListener("click", () => {
-            if (patternWords.textContent.includes(word.textContent)) {
-                word.classList.add("selected");
-                correctMatches++;
+    // Evaluación
+    let correctAnswers = 0;
+    document.querySelectorAll(".answer").forEach(button => {
+        button.addEventListener("click", () => {
+            if (button.getAttribute("data-correct") === "true") {
+                correctAnswers++;
             }
         });
     });
 
     document.getElementById("submit-evaluation").addEventListener("click", () => {
-        const correctSelections = selectedWords.filter((word) =>
-            word.getAttribute("data-keyword") === "true"
-        );
-        const totalKeywords = keywords.length;
+        let wordsPerMinute = sessionStorage.getItem("WPM") || 0;
+        let comprehensionScore = (correctAnswers / 5) * 100;
+        let speedScore = Math.min(100, (wordsPerMinute / 250) * 100);  // Máximo 100 puntos
 
-        const exercise1Score = (correctSelections.length / totalKeywords) * 50;
-        const exercise2Score = (correctMatches / patternWords.length) * 50;
+        let finalScore = Math.round((comprehensionScore * 0.7) + (speedScore * 0.3));
 
-        const totalScore = exercise1Score + exercise2Score;
+        document.getElementById("result-message").textContent = `Leíste a ${wordsPerMinute} PPM. Puntaje final: ${finalScore}%.`;
 
-        const resultMessage = document.getElementById("result-message");
-        const retryButton = document.getElementById("retry");
-        const markCompleteButton = document.getElementById("mark-complete");
-
-        if (totalScore >= 90) {
-            resultMessage.textContent = `¡Felicidades! Has aprobado con un puntaje total de ${totalScore}%.`;
-            markCompleteButton.classList.remove("hidden");
-            retryButton.classList.add("hidden");
-        } else {
-            resultMessage.textContent = `Has obtenido ${totalScore}%. No alcanzaste el puntaje mínimo requerido. Intenta nuevamente.`;
-            retryButton.classList.remove("hidden");
-            markCompleteButton.classList.add("hidden");
-        }
-
+        document.getElementById("question-container").classList.add("hidden");
         document.getElementById("results").classList.remove("hidden");
+
+        if (finalScore >= 90) {
+            document.getElementById("mark-complete").classList.remove("hidden");
+        } else {
+            document.getElementById("retry").classList.remove("hidden");
+        }
     });
 
     document.getElementById("retry").addEventListener("click", () => {
-        words.forEach((word) => word.classList.remove("selected"));
-        matchWords.forEach((word) => word.classList.remove("selected"));
-        document.getElementById("results").classList.add("hidden");
+        location.reload();
     });
 
     document.getElementById("mark-complete").addEventListener("click", () => {
-        const progress = JSON.parse(localStorage.getItem("courseProgress")) || {};
-        const submodule = window.location.pathname.split("/").pop();
-        progress[submodule] = "completed";
-        localStorage.setItem("courseProgress", JSON.stringify(progress));
-
-        const modal = document.getElementById("custom-modal");
-        modal.classList.add("visible");
-
-        document.getElementById("close-modal").addEventListener("click", () => {
-            modal.classList.remove("visible");
-            window.location.href = "/modulos/modulo8/teoria1.html";
-        });
+        window.location.href = "/modulos/modulo8/teoria1.html";
     });
 });

@@ -30,63 +30,35 @@
             <section class="content">
                 <h2>Instrucciones</h2>
                 <p>
-                    Completa los ejercicios prácticos a continuación. Debes obtener un puntaje mínimo del 85% para aprobar esta evaluación. Lee atentamente y selecciona las respuestas correctas o interactúa con los elementos según lo indicado.
+                    Sigue el punto rojo con la vista sin mover la cabeza. Al finalizar, se te preguntará en qué posición estaba el punto.
                 </p>
-
-                <!-- Ejercicio 1: Identificación de palabras clave -->
-                <div id="exercise1">
-                    <h3>1. Identificación de Palabras Clave</h3>
-                    <p>
-                        Selecciona las palabras clave en el texto siguiente:
-                    </p>
-                    <p>
-                        La <span class="word" data-keyword="true">lectura</span> veloz es una <span class="word" data-keyword="true">habilidad</span> 
-                        que <span class="word" data-keyword="false">elefantes</span> permite procesar <span class="word" data-keyword="true">información</span> 
-                        de <span class="word" data-keyword="true">manera</span> <span class="word" data-keyword="false">mariposas</span> más eficiente.
-                    </p>
-                </div>
-
-                <!-- Ejercicio 2: Asociaciones -->
-                <div id="exercise2">
-                    <h3>2. Asociaciones Correctas</h3>
-                    <p>
-                        Arrastra cada palabra hacia su definición correcta:
-                    </p>
-                    <div class="drag-container">
-                        <div class="draggable" draggable="true" id="block-reading">Lectura por bloques</div>
-                        <div class="draggable" draggable="true" id="subvocalization">Subvocalización</div>
-                        <div class="draggable" draggable="true" id="visual-guides">Guías visuales</div>
-                    </div>
-                    <div class="drop-container">
-                        <div class="drop-target" data-answer="block-reading">Captar grupos de palabras al leer</div>
-                        <div class="drop-target" data-answer="subvocalization">Pronunciar mentalmente mientras se lee</div>
-                        <div class="drop-target" data-answer="visual-guides">Usar un lápiz o dedo para guiar la lectura</div>
-                    </div>
-                    
-                </div>
-
-                <!-- Botón para enviar evaluación -->
-                <button id="submit-evaluation">Enviar Respuestas</button>
-
-                <!-- Modal personalizado -->
-                <div id="custom-modal" class="hidden">
-                    <div class="modal-content">
-                        <p id="modal-message">¡Evaluación completada! Redirigiendo al siguiente módulo.</p>
-                        <button id="close-modal">Continuar</button>
+        
+                <!-- Área del ejercicio -->
+                <div id="exercise">
+                    <h3>1. Seguimiento Visual</h3>
+                    <div class="exercise-area">
+                        <button id="start-exercise" class="exercise-btn">Iniciar Ejercicio</button>
+                        <div id="moving-dot"></div>
                     </div>
                 </div>
-
-                <!-- Resultados -->
-                <div id="results" class="hidden">
-                    <h2>Resultados</h2>
-                    <p id="result-message"></p>
-                    <button id="retry" class="hidden">Volver a Intentar</button>
-                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+        
+                <!-- Pregunta final -->
+                <div id="evaluation" class="hidden">
+                    <h3>¿Dónde estaba el punto al finalizar?</h3>
+                    <form id="position-form">
+                        <label><input type="radio" name="position" value="top-left"> Esquina superior izquierda</label>
+                        <label><input type="radio" name="position" value="top-right"> Esquina superior derecha</label>
+                        <label><input type="radio" name="position" value="bottom-left"> Esquina inferior izquierda</label>
+                        <label><input type="radio" name="position" value="bottom-right"> Esquina inferior derecha</label>
+                    </form>
+                    <button id="submit-evaluation" class="exercise-btn">Enviar Respuesta</button>
                 </div>
             </section>
         </main>
+        
+        
     </div>
     <script src="../../js/noLoggeado.js"></script>
-    <script src="../../js/modulo3_evaluacionPractica"></script>
+    <script src="../../js/modulo3_evaluacionPractica.js"></script>
 </body>
 </html>

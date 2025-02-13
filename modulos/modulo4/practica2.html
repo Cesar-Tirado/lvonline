@@ -3,100 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Práctica 2: Procesamiento de Textos Complejos</title>
+    <title>Práctica: Búsqueda de Palabras Clave</title>
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body>
-        <!-- Barra de navegación con iconos -->
-        <nav class="navbar2">
-            <!-- Icono de Inicio a la izquierda -->
-            <a href="../../curso.html" class="nav-home">
-                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
-            </a>
-    
-            <!-- Icono de Cerrar Sesión a la derecha -->
-            <button id="logout" class="nav-logout">
-                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
-            </button>
-        </nav>
+    <!-- Barra de navegación con iconos -->
+    <nav class="navbar2">
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+
     <div class="module-container">
         <header>
-            <h1>Práctica 2: Procesamiento de Textos Complejos</h1>
+            <h1>Práctica 2: Búsqueda de Palabras Clave</h1>
         </header>
         <main>
             <section class="content">
                 <h2>Instrucciones</h2>
                 <p>
-                    En esta práctica trabajarás con textos más largos y complejos. Debes identificar las palabras clave 
-                    y responder preguntas de comprensión. Adicionalmente, realizarás ejercicios de seguimiento visual y lectura por bloques.
+                    En este ejercicio, aparecerá un texto con varias palabras resaltadas. **Debes hacer clic en todas las palabras clave** en un límite de tiempo.
+                    **Ojo**: algunas palabras NO son clave y no sumarán puntos.
                 </p>
 
-                <!-- Ejercicio 1: Identificación de palabras clave -->
-                <div id="exercise1">
-                    <h3>1. Identificación de Palabras Clave</h3>
-                    <p>
-                        A continuación, se presenta un texto. Identifica las palabras clave haciendo clic sobre ellas:
-                    </p>
-                    <blockquote>
-                        "La habilidad de leer de forma eficiente no solo consiste en rapidez, sino también en la capacidad 
-                        de identificar palabras clave que transmiten el mensaje central. Esta técnica, conocida como lectura 
-                        estratégica, permite a los lectores comprender textos largos con facilidad, enfocándose en los términos 
-                        y frases de mayor relevancia."
+                <!-- Ejercicio: Búsqueda de Palabras Clave -->
+                <div id="exercise">
+                    <h3>Encuentra las Palabras Clave</h3>
+                    <p id="countdown">Tiempo restante: <span id="timer">20</span> segundos</p>
+                    <blockquote id="text">
+                        <span class="word" data-keyword="true">Lectura</span> veloz es una <span class="word" data-keyword="true">habilidad</span> esencial para mejorar la <span class="word" data-keyword="true">comprensión</span> de textos largos en poco tiempo.  
+                        Para lograrlo, se deben aplicar <span class="word" data-keyword="true">técnicas</span> como la <span class="word" data-keyword="true">eliminación</span> de la <span class="word" data-keyword="false">fatiga</span> visual y el uso de la <span class="word" data-keyword="true">lectura por bloques</span>.  
+                        No se recomienda <span class="word" data-keyword="false">leer</span> palabra por palabra, ya que esto **ralentiza** el proceso y reduce la **eficiencia**.  
+                        En cambio, el entrenamiento con <span class="word" data-keyword="true">prácticas</span> de alta velocidad permite mejorar la <span class="word" data-keyword="true">retención</span> y fortalecer la <span class="word" data-keyword="true">fluidez</span> en la lectura.  
+                        **Evita subvocalizar** al leer, ya que esto genera una <span class="word" data-keyword="false">barrera</span> mental que impide el aumento de velocidad.  
+                        Aplicando estas <span class="word" data-keyword="true">estrategias</span>, cualquier persona puede **duplicar su velocidad de lectura** en pocas semanas.  
                     </blockquote>
-                    <p>
-                        <span class="word" data-keyword="true">habilidad</span> 
-                        <span class="word" data-keyword="false">color</span> 
-                        <span class="word" data-keyword="true">rápidez</span> 
-                        <span class="word" data-keyword="false">alegría</span> 
-                        <span class="word" data-keyword="true">estratégica</span>
-                        <span class="word" data-keyword="true">relevancia</span>
-                    </p>
                 </div>
 
-                <!-- Ejercicio 2: Seguimiento visual por bloques -->
-                <div id="exercise2">
-                    <h3>2. Seguimiento Visual por Bloques</h3>
-                    <p>
-                        En este ejercicio, aparecerán bloques de texto breves de manera secuencial. Lee cada bloque rápidamente antes de que desaparezca.
-                    </p>
-                    <section class="content">
-                        <h2>Ejercicio 2: Seguimiento Visual por Bloques</h2>
-                        <p>
-                            Sigue visualmente el bloque de texto resaltado que aparece en la pantalla. Este ejercicio ayuda a mejorar el enfoque y la velocidad de procesamiento.
-                        </p>
-                        <button id="start-blocks">Iniciar Seguimiento</button>
-                        <div class="block">Bloque 1: La lectura veloz es una habilidad clave para procesar información rápidamente.</div>
-                        <div class="block">Bloque 2: Implica técnicas como la lectura por bloques y la eliminación de subvocalización.</div>
-                        <div class="block">Bloque 3: Practicar estas técnicas mejora tanto la velocidad como la comprensión lectora.</div>
-                        <div class="block">Bloque 4: La constancia es esencial para alcanzar resultados óptimos en la lectura veloz.</div>
-                    </section>
-                    
-                </div>
+                <!-- Botón para iniciar el ejercicio -->
+                <button id="start-exercise">Iniciar Ejercicio</button>
 
                 <!-- Botón para enviar evaluación -->
-                <button id="submit-practice">Enviar Respuestas</button>
-
-                <!-- Modal personalizado -->
-                <div id="custom-modal" class="hidden">
-                    <div class="modal-content">
-                        <p id="modal-message">Práctica completada. ¡Buen trabajo!</p>
-                        <button id="close-modal">Continuar</button>
-                    </div>
-                </div>
+                <button id="submit-practice" class="hidden">Finalizar y Guardar</button>
 
                 <!-- Resultados -->
                 <div id="results" class="hidden">
                     <h2>Resultados</h2>
                     <p id="result-message"></p>
-                    <button id="retry" class="hidden">Volver a Intentar</button>
-                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                    <button id="retry">Repetir Ejercicio</button>
+                    <button id="mark-complete">Continuar al siguiente módulo</button>
                 </div>
             </section>
         </main>
     </div>
+
     <script src="../../js/noLoggeado.js"></script>
     <script src="../../js/modulo4_practica2.js"></script>
 </body>

@@ -76,4 +76,35 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "/modulos/modulo5/practica2.html";
         });
     });
+    // Botón de reintentar
+const retryButton = document.createElement("button");
+retryButton.textContent = "Intentarlo otra vez";
+retryButton.classList.add("exercise-btn", "hidden");
+retryButton.addEventListener("click", () => {
+    location.reload(); // 🔹 Recarga la página
+});
+document.getElementById("results").appendChild(retryButton);
+
+// Manejo del formulario de preguntas
+document.getElementById("practice-questions").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const correctAnswers = document.querySelectorAll("input[value='correct']:checked").length;
+    const totalQuestions = document.querySelectorAll("input[type='radio'][value='correct']").length;
+
+    const resultMessage = document.getElementById("result-message");
+    const markCompleteButton = document.getElementById("mark-complete");
+
+    if (correctAnswers === totalQuestions) {
+        resultMessage.textContent = "¡Felicidades! Has completado la práctica exitosamente.";
+        markCompleteButton.classList.remove("hidden");
+    } else {
+        resultMessage.textContent = "Intenta nuevamente para mejorar tu comprensión.";
+        retryButton.classList.remove("hidden"); // 🔹 Mostrar botón de reintentar si no aprueba
+    }
+
+    document.getElementById("results").classList.remove("hidden");
+    questionsContainer.classList.add("hidden");
+});
+
 });

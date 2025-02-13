@@ -7,21 +7,17 @@
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body>
-        <!-- Barra de navegación con iconos -->
-        <nav class="navbar2">
-            <!-- Icono de Inicio a la izquierda -->
-            <a href="../../curso.html" class="nav-home">
-                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
-            </a>
-    
-            <!-- Icono de Cerrar Sesión a la derecha -->
-            <button id="logout" class="nav-logout">
-                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
-            </button>
-        </nav>
+    <nav class="navbar2">
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+
     <div class="module-container">
         <header>
             <h1>Evaluación Práctica del Módulo 7</h1>
@@ -29,52 +25,72 @@
         <main>
             <section class="content">
                 <h2>Instrucciones</h2>
-                <p>
-                    Completa los ejercicios prácticos. Debes obtener un puntaje mínimo del 90% para aprobar. 
-                    Selecciona las opciones correctas y sigue las instrucciones en pantalla.
-                </p>
+                <p>Lee el siguiente texto lo más rápido posible sin perder comprensión.</p>
+                <button id="start-reading">Iniciar Lectura</button>
+                
+                <div id="reading-container" class="hidden">
+                    <p id="reading-text">
+                        La lectura rápida es una habilidad que permite procesar información de manera eficiente. Se basa en técnicas como la eliminación de subvocalización, el uso de guías visuales y la expansión del campo de visión. Estudios han demostrado que la velocidad de lectura promedio es de 200 a 250 palabras por minuto, mientras que lectores avanzados pueden superar las 500 palabras por minuto sin afectar su comprensión.
 
-                <!-- Ejercicio 1 -->
-                <div id="exercise1">
-                    <h3>1. Selección de palabras clave</h3>
-                    <p>Selecciona las palabras clave que son importantes para comprender el texto:</p>
-                    <p>
-                        La <span class="word" data-keyword="true">lectura</span> <span class="word" data-keyword="false">rápida</span> es una <span class="word" data-keyword="true">habilidad</span> que <span class="word" data-keyword="false">ayuda</span> a <span class="word" data-keyword="true">procesar</span> información de manera <span class="word" data-keyword="true">efectiva</span>.
+                        A lo largo de la historia, el ser humano ha buscado formas de mejorar su capacidad de lectura. En el siglo XX, con la llegada de la psicología cognitiva, se descubrió que muchos hábitos tradicionales de lectura son innecesarios y pueden ralentizar el proceso. Por ejemplo, la subvocalización, que es el hábito de pronunciar mentalmente cada palabra al leer, puede reducir drásticamente la velocidad. Técnicas como la lectura en bloques permiten captar frases enteras en lugar de palabras sueltas, mejorando la eficiencia.
+
+                        Otro factor clave es la capacidad de filtrar información. Un lector veloz no solo lee rápido, sino que también sabe identificar qué partes del texto son más importantes y cuáles pueden omitirse sin perder el significado general. Esto es fundamental en un mundo donde la cantidad de información crece exponencialmente cada día.
+
+                        Además, los avances tecnológicos han impulsado nuevas formas de entrenar la lectura rápida. Aplicaciones y plataformas especializadas utilizan ejercicios visuales para fortalecer la percepción y velocidad de reconocimiento de palabras. La inteligencia artificial y el aprendizaje automático han permitido la creación de algoritmos que personalizan la experiencia de lectura, adaptándola a cada usuario.
+
+                        Sin embargo, la lectura rápida no es útil en todos los casos. Textos técnicos, científicos o legales requieren una lectura más detallada para asegurar la correcta interpretación. En estos casos, la velocidad debe equilibrarse con la comprensión. Lo ideal es desarrollar una flexibilidad lectora que permita ajustar la velocidad según el tipo de contenido.
+
+                        Finalmente, la práctica constante es el factor más importante para mejorar la lectura veloz. No se trata solo de leer más rápido, sino de comprender mejor en menos tiempo. Con la metodología adecuada y la disciplina necesaria, cualquier persona puede aumentar significativamente su velocidad de lectura sin sacrificar la calidad de su comprensión.
                     </p>
+                    <p><strong>Tiempo transcurrido: <span id="timer">0</span> segundos</strong></p>
+                    <button id="finish-reading">Terminar Lectura</button>
                 </div>
 
-                <!-- Ejercicio 2 -->
-                <div id="exercise2">
-                    <h3>2. Seguimiento visual</h3>
-                    <p>
-                        Sigue la línea con tu vista y selecciona las palabras que coinciden con el patrón mostrado a continuación:
-                    </p>
-                    <div id="pattern" class="pattern">efectiva habilidad procesar lectura</div>
-                    <div id="text-to-match" class="text-to-match">
-                        <p>lectura procesar habilidad efectiva rápida habilidad efectiva lectura procesar</p>
+                <div id="question-container" class="hidden">
+                    <h3>Responde las siguientes preguntas:</h3>
+                    <div class="question">
+                        <p>1. ¿Cuál es la velocidad promedio de lectura en palabras por minuto?</p>
+                        <button class="answer" data-correct="true">200-250 PPM</button>
+                        <button class="answer">100-150 PPM</button>
+                        <button class="answer">400-500 PPM</button>
                     </div>
-                </div>
-
-                <button id="submit-evaluation">Enviar Respuestas</button>
-
-                <!-- Modal personalizado -->
-                <div id="custom-modal" class="hidden">
-                    <div class="modal-content">
-                        <p id="modal-message">¡Evaluación Completada!</p>
-                        <button id="close-modal">Finalizar Módulo</button>
+                    <div class="question">
+                        <p>2. ¿Cuál de estos hábitos puede ralentizar la lectura?</p>
+                        <button class="answer" data-correct="true">Subvocalización</button>
+                        <button class="answer">Lectura en bloques</button>
+                        <button class="answer">Filtrado de información</button>
                     </div>
+                    <div class="question">
+                        <p>3. ¿Qué permite la lectura en bloques?</p>
+                        <button class="answer">Leer palabra por palabra</button>
+                        <button class="answer" data-correct="true">Captar frases completas</button>
+                        <button class="answer">Reducir la comprensión</button>
+                    </div>
+                    <div class="question">
+                        <p>4. ¿Cómo ayuda la tecnología a la lectura rápida?</p>
+                        <button class="answer" data-correct="true">Con aplicaciones y algoritmos personalizados</button>
+                        <button class="answer">Reduciendo la cantidad de información disponible</button>
+                        <button class="answer">Limitando el acceso a textos complejos</button>
+                    </div>
+                    <div class="question">
+                        <p>5. ¿En qué tipo de textos la lectura rápida puede no ser efectiva?</p>
+                        <button class="answer">Novelas y cuentos</button>
+                        <button class="answer">Noticias y blogs</button>
+                        <button class="answer" data-correct="true">Textos científicos o legales</button>
+                    </div>
+                    <button id="submit-evaluation">Calcular Puntaje</button>
                 </div>
 
-                <!-- Resultados -->
                 <div id="results" class="hidden">
                     <h2>Resultados</h2>
                     <p id="result-message"></p>
-                    <button id="retry" class="hidden">Volver a Intentar</button>
+                    <button id="retry">Volver a Intentar</button>
                     <button id="mark-complete" class="hidden">Marcar como Completado</button>
                 </div>
             </section>
         </main>
     </div>
+
     <script src="../../js/noLoggeado.js"></script>
     <script src="../../js/modulo7_evaluacionPractica.js"></script>
 </body>

@@ -90,4 +90,43 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "/modulos/modulo5/practica3.html";
         });
     });
+
+    // Botón de reintentar
+const retryButton = document.createElement("button");
+retryButton.textContent = "Intentarlo otra vez";
+retryButton.classList.add("exercise-btn", "hidden");
+retryButton.addEventListener("click", () => {
+    location.reload(); // Recarga la página
+});
+document.getElementById("results").appendChild(retryButton);
+
+// Enviar respuestas
+submitAnswersButton.addEventListener("click", () => {
+    const selectedOptions = document.querySelectorAll(".word-option.selected");
+    let correctCount = 0;
+
+    selectedOptions.forEach((option) => {
+        if (option.dataset.correct === "true") {
+            correctCount++;
+        }
+    });
+
+    const totalCorrect = document.querySelectorAll(".word-option[data-correct='true']").length;
+    const score = (correctCount / totalCorrect) * 100;
+
+    const resultMessage = document.getElementById("result-message");
+    const markCompleteButton = document.getElementById("mark-complete");
+
+    if (score >= 85) {
+        resultMessage.textContent = `¡Felicidades! Has completado la práctica con un puntaje de ${score}%.`;
+        markCompleteButton.classList.remove("hidden");
+    } else {
+        resultMessage.textContent = `Has obtenido ${score}%. No alcanzaste el puntaje mínimo requerido. Intenta nuevamente.`;
+        retryButton.classList.remove("hidden"); // 🔹 Mostrar botón de reintentar si no aprueba
+    }
+
+    document.getElementById("results").classList.remove("hidden");
+    questionsContainer.classList.add("hidden");
+});
+
 });

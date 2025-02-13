@@ -37,6 +37,6 @@ document.getElementById("mark-complete").addEventListener("click", () => {
 
     document.getElementById("close-modal").addEventListener("click", () => {
         modal.classList.remove("visible");
-        window.location.href = "/modulos/modulo3/practica1.html";
+        window.location.href = "/modulos/modulo3/evaluacionPractica.html";
     });
 });

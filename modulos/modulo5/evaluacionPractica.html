@@ -7,22 +7,17 @@
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body>
-        <!-- Barra de navegación con iconos -->
-        <nav class="navbar2">
-            <!-- Icono de Inicio a la izquierda -->
-            <a href="../../curso.html" class="nav-home">
-                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
-            </a>
-    
-            <!-- Icono de Cerrar Sesión a la derecha -->
-            <button id="logout" class="nav-logout">
-                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
-            </button>
-        </nav>
-    
+    <nav class="navbar2">
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+
     <div class="module-container">
         <header>
             <h1>Evaluación Práctica del Módulo 5</h1>
@@ -31,48 +26,33 @@
             <section class="content">
                 <h2>Instrucciones</h2>
                 <p>
-                    Completa los ejercicios prácticos a continuación. Debes obtener un puntaje mínimo del 90% para aprobar.
+                    Lee rápidamente las frases que aparecen en pantalla. Luego, responde las preguntas de comprensión.
+                    Debes acertar al menos 3 preguntas para aprobar.
                 </p>
 
-                <!-- Ejercicio 1: Palabras que desaparecen -->
-                <div id="exercise1">
-                    <h3>1. Identifica las palabras clave</h3>
-                    <p>
-                        Memoriza las palabras que aparecen a continuación. Luego selecciona las palabras clave de una lista.
-                    </p>
-                    <button id="start-memorize">Iniciar Memorización</button>
-                    <div id="words-to-memorize" class="hidden">
-                        <p><span class="word">Rendimiento</span> <span class="word">Velocidad</span> <span class="word">Comprehensión</span> <span class="word">Práctica</span> <span class="word">Subvocalización</span></p>
+                <!-- Ejercicio de lectura rápida -->
+                <div id="exercise">
+                    <h3>1. Lee las frases rápidamente</h3>
+                    <button id="start-exercise">Iniciar Ejercicio</button>
+                    <div id="phrase-container" class="hidden">
+                        <p id="phrase-display">Aquí aparecerán las frases...</p>
                     </div>
                 </div>
 
-                <div id="exercise1-select" class="hidden">
-                    <h3>Selecciona las palabras clave</h3>
-                    <div class="selection-box">
-                        <button class="word-option">Rendimiento</button>
-                        <button class="word-option">Lectura</button>
-                        <button class="word-option">Comprehensión</button>
-                        <button class="word-option">Subvocalización</button>
-                        <button class="word-option">Técnicas</button>
-                        <button class="word-option">Velocidad</button>
+                <!-- Preguntas de comprensión -->
+                <div id="questions-container" class="hidden">
+                    <h3>2. Responde las preguntas</h3>
+                    <p id="question-text"></p>
+                    <div id="answer-options">
+                        <button class="answer-option"></button>
+                        <button class="answer-option"></button>
+                        <button class="answer-option"></button>
+                        <button class="answer-option"></button>
                     </div>
                 </div>
 
-                <!-- Ejercicio 2: Seguimiento visual -->
-                <div id="exercise2">
-                    <h3>2. Seguimiento de Bloques</h3>
-                    <p>Sigue el bloque de palabras resaltado y selecciona la palabra correcta al final.</p>
-                    <div id="blocks-container" class="hidden">
-                        <div class="block">Velocidad</div>
-                        <div class="block">Comprehensión</div>
-                        <div class="block highlight">Rendimiento</div>
-                        <div class="block">Práctica</div>
-                    </div>
-                    <button id="start-tracking">Iniciar Seguimiento</button>
-                </div>
-
-                <!-- Botón para enviar evaluación -->
-                <button id="submit-evaluation">Enviar Evaluación</button>
+                <!-- Botón para finalizar -->
+                <button id="submit-evaluation" class="hidden">Enviar Respuestas</button>
 
                 <!-- Resultados -->
                 <div id="results" class="hidden">
@@ -82,10 +62,10 @@
                     <button id="mark-complete" class="hidden">Marcar como Completado</button>
                 </div>
 
-                <!-- Modal personalizado -->
+                <!-- Modal para pasar de módulo -->
                 <div id="custom-modal" class="hidden">
                     <div class="modal-content">
-                        <p id="modal-message">¡Evaluación Práctica del Módulo 5 completada con éxito!</p>
+                        <p id="modal-message">¡Evaluación completada con éxito!</p>
                         <button id="close-modal">Ir al Módulo 6</button>
                     </div>
                 </div>

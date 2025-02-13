@@ -7,21 +7,17 @@
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="icon" href="icon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <body>
-        <!-- Barra de navegación con iconos -->
-        <nav class="navbar2">
-            <!-- Icono de Inicio a la izquierda -->
-            <a href="../../curso.html" class="nav-home">
-                <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
-            </a>
-    
-            <!-- Icono de Cerrar Sesión a la derecha -->
-            <button id="logout" class="nav-logout">
-                <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
-            </button>
-        </nav>
+    <nav class="navbar2">
+        <a href="../../curso.html" class="nav-home">
+            <img src="../../assets/images/inicio.png" alt="Inicio" title="Inicio">
+        </a>
+        <button id="logout" class="nav-logout">
+            <img src="../../assets/images/cerrar-sesion.png" alt="Cerrar Sesión" title="Cerrar Sesión">
+        </button>
+    </nav>
+
     <div class="module-container">
         <header>
             <h1>Evaluación Práctica del Módulo 4</h1>
@@ -30,19 +26,17 @@
             <section class="content">
                 <h2>Instrucciones</h2>
                 <p>
-                    Completa los ejercicios prácticos relacionados con los conceptos de este módulo. Debes obtener al menos un 80% de puntaje para aprobar.
+                    Sigue el punto en movimiento con la vista. Cuando se detenga, aparecerá un número por 1 segundo. 
+                    Debes seleccionar el número correcto. **Necesitas acertar 3 veces** para aprobar, pero si aciertas **2 veces**, puedes continuar.
                 </p>
 
-                <!-- Ejercicio 1: Seguimiento Ocular -->
                 <div id="exercise1">
-                    <h3>1. Ejercicio de Seguimiento Ocular</h3>
-                    <p>
-                        Sigue el punto en movimiento y selecciona el número correcto cuando se detenga.
-                    </p>
-                    <div id="tracking-area" class="tracking-area">
-                        <div id="moving-point" class="moving-point"></div>
+                    <h3>1. Seguimiento Ocular</h3>
+                    <p>Sigue el punto en movimiento y selecciona el número correcto cuando se detenga.</p>
+                    <div id="tracking-area">
+                        <div id="moving-point"></div>
                     </div>
-                    <div id="tracking-buttons" class="tracking-buttons hidden">
+                    <div id="tracking-buttons" class="hidden">
                         <button class="tracking-button" data-value="1">1</button>
                         <button class="tracking-button" data-value="2">2</button>
                         <button class="tracking-button" data-value="3">3</button>
@@ -51,22 +45,8 @@
                     <button id="start-tracking">Iniciar Seguimiento</button>
                 </div>
 
-                <!-- Ejercicio 2: Identificación de Distractores -->
-                <div id="exercise2">
-                    <h3>2. Identificación de Distractores</h3>
-                    <p>
-                        Identifica las palabras que no pertenecen al contexto y haz clic en ellas:
-                    </p>
-                    <p>
-                        La lectura <span class="word" data-keyword="false">rápida</span> es una habilidad <span class="word" data-keyword="false">clave</span>
-                        que permite <span class="word" data-keyword="true">unicornios</span> procesar grandes <span class="word" data-keyword="false">cantidades</span> 
-                        de información en <span class="word" data-keyword="true">canguros</span> menos tiempo. 
-                    </p>
-                </div>
+                <button id="submit-evaluation" class="hidden">Enviar Respuestas</button>
 
-                <button id="submit-evaluation">Enviar Respuestas</button>
-
-                <!-- Modal personalizado -->
                 <div id="custom-modal" class="hidden">
                     <div class="modal-content">
                         <p id="modal-message">Evaluación completada. ¡Buen trabajo!</p>
@@ -74,12 +54,11 @@
                     </div>
                 </div>
 
-                <!-- Resultados -->
                 <div id="results" class="hidden">
                     <h2>Resultados</h2>
                     <p id="result-message"></p>
-                    <button id="retry" class="hidden">Volver a Intentar</button>
-                    <button id="mark-complete" class="hidden">Marcar como Completado</button>
+                    <button id="retry" class="hidden">Repetir Evaluación</button>
+                    <button id="mark-complete" class="hidden">Continuar al Módulo 5</button>
                 </div>
             </section>
         </main>
